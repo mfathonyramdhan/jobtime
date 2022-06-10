@@ -1,0 +1,24 @@
+template admin :
+https://www.admintem.com/2021/12/free-bootstrap-5-admin-dashboard.html
+
+https://gitlab.com/SoengSouy/free-bootstrap-5-html5-admin-dashboard-template
+
+originall
+https://github.com/zuramai/mazer
+
+https://www.youtube.com/watch?v=tXYofjI4Fak
+
+
+Jadi mau buat untuk user sama admin
+User: 
+-melakukan login, kalau belum pnya akun, registrasi dengan memberi data diri seperti, nama, nomor hp, email, username, password.
+-Kalau sudah, masuk username yang sudah dibuat, kalau sudah masuk ke halaman dashboard yang dimana ada list list lowongan pekerjaan yang ada, jika ada yang di minat di tekan detail agar masuk ke halaman detail lowongan pekerjaan
+- Masuk halaman pembuat lowongan pekerjaan yang dimana user juga bisa mendaftarkan atau membuat lowongan pekerjaan yang nanti aku dikirimkan dan liat oleh admin
+-Masuk ke halaman profile yang dimana bisa mengedit data diri jika ingin diubah
+
+Admin :
+-menambahkan data lowongan pekerjaan
+-melihat data pembuat lowongan pekerjaan yang nanti jika memadai akan ditambahkan di list lowongan perkerjaan
+-mengedit data lowongan pekerjaan 
+-menghapus data lowongan pekerjaan
+-mengelola data user
