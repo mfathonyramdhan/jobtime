@@ -34,6 +34,16 @@ class M_admin extends CI_Model
         return $query->result_array();
     }
 
+    function daftar_loker()
+    {
+        $this->db->select('*');
+        $this->db->from('tb_jobs');
+        $this->db->join('tb_jobs_status', 'tb_jobs_status.id_jobs_status = tb_jobs.id_jobs_status');
+        $this->db->join('tb_user', 'tb_jobs.id_user = tb_user.id_user');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
     function getDataAkun($id_user)
     {
         $this->db->select('*');

@@ -17,7 +17,7 @@
                         <li class="sidebar-title">Admin Menu</li>
 
                         <li class="sidebar-item active">
-                            <a href="index.html" class="sidebar-link">
+                            <a href="<?= base_url('admin') ?>" class="sidebar-link">
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Dashboard</span>
                             </a>
@@ -45,7 +45,7 @@
                             </a>
                             <ul class="submenu">
                                 <li class="submenu-item">
-                                    <a href="data-loker.html">Data Loker</a>
+                                    <a href="<?= base_url('admin/data_loker') ?>">Data Loker</a>
                                 </li>
                             </ul>
                         </li>
