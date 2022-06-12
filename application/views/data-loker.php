@@ -24,11 +24,19 @@
   <section class="section">
     <div class="card">
       <div class="card-header">Data Lowongan Pekerjaan</div>
+      <div class="text-center">
+        <div class="buttons">
+          <a href="<?= base_url('admin/form_create_loker/') ?>" class="btn btn-primary">Buat Postingan Loker Baru +</a>
+
+        </div>
+      </div>
+
       <div class="card-body">
         <table class="table table-striped" id="table1">
           <thead>
             <tr>
               <th>No.</th>
+              <th>Aksi</th>
               <th>ID Loker</th>
               <th>Akun Pembuat Loker</th>
               <th>Nama Perusahaan</th>
@@ -43,7 +51,7 @@
               <th>Link Whatsapp</th>
               <th>Loker Dibuat</th>
               <th>Loker diupdate terakhir pada</th>
-              <th>Aksi</th>
+
             </tr>
 
           </thead>
@@ -54,6 +62,17 @@
               ?>
                 <tr>
                   <td><?= $no++ ?></td>
+                  <td>
+                    <!-- <a href="<#?= base_url('admin/edit_loker/' . $a['id_jobs']) ?>"> -->
+                    <a href="<?= base_url('admin/edit_loker/') ?>">
+                      <span class="badge bg-primary" style="margin: 10px">Edit</span>
+                    </a>
+
+                    <!-- <a href="<#?= base_url('admin/hapus_loker/' . $a['id_jobs']) ?>"> -->
+                    <a href="">
+                      <span class="badge bg-danger">Hapus</span>
+                    </a>
+                  </td>
                   <td><?= $d['id_jobs'] ?></td>
                   <td><?= $d['nama'] ?></td>
                   <td><?= $d['perusahaan_nama'] ?></td>
@@ -73,17 +92,7 @@
                   <td><?= date('Y-m-d', $created) ?></td>
                   <?php $updated = strtotime($d['updated_at']) ?>
                   <td><?= date('Y-m-d', $updated) ?></td>
-                  <td>
-                    <!-- <a href="<#?= base_url('admin/edit_loker/' . $a['id_jobs']) ?>"> -->
-                    <a href="<?= base_url('admin/edit_loker/') ?>">
-                      <span class="badge bg-primary" style="margin: 10px">Edit</span>
-                    </a>
 
-                    <!-- <a href="<#?= base_url('admin/hapus_loker/' . $a['id_jobs']) ?>"> -->
-                    <a href="">
-                      <span class="badge bg-danger">Hapus</span>
-                    </a>
-                  </td>
                 </tr>
               <?php } ?>
             <?php } ?>
