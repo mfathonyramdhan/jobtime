@@ -3,7 +3,8 @@
 	<nav class="navbar bg-primary navbar-expand fixed-bottom d-md-none d-lg-none d-xl-none" style="height: 40px;">
 		<ul class="navbar-nav nav-justified w-100">
 			<li class="nav-item">
-				<a href="<?= base_url('admin/favorit/') ?>" class="nav-link"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-star-fill" viewBox="0 0 16 16">
+				<a href="<?= base_url('admin/favorit/') ?>" class="nav-link">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-star-fill" viewBox="0 0 16 16">
 						<path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
 					</svg>
 				</a>
@@ -26,52 +27,33 @@
 
 		</ul>
 	</nav>
+	<div class="row" style="margin-right: 20px; margin-left: 20px; padding-bottom: 20px;">
+			</div>
 
-
-	<div class="card shadow p-3 mb-5 bg-white rounded" style="margin-right: 20px; margin-left: 20px; margin-bottom: 100px;">
+	<div class="card shadow p-3 mb-5 bg-white rounded" style="margin-right: 20px; margin-left: 20px;">
 		<div class="card-content">
-			<img class="card-img-top img-fluid" src="<?php echo base_url('assets/images/logo_perusahaan/' . $loker['logo']) ?>" alt="Card image cap">
+			<img class="card-img-top img-fluid" src="<?php echo base_url('assets/images/logo/logo.png') ?>" alt="Card image cap">
 			<div class="card-body">
-				<h4 class="card-title" style="padding-bottom: 10px;"><?= $loker['judul'] ?></h4>
+				<h4 class="card-title" style="padding-bottom: 10px;">Front-End Web Developer</h4>
 				<p> <i class="bi bi-building"></i>
-					<?= $loker['perusahaan_nama'] ?></p>
+					PT. Jaya Makmur Techno</p>
 				<div class="row">
 					<div class="col">
-						<p> <i class="bi bi-geo-alt"> </i><?= $loker['perusahaan_lokasi'] ?></p>
+						<p> <i class="bi bi-geo-alt"> </i>Jawa Timur - Jember</p>
 					</div>
 				</div>
 
 				<h5>Gaji</h5>
-				<p><i class="bi bi-currency-dollar"></i><?= "Rp " . number_format($loker['gaji'], 0, ',', '.'); ?></p>
+				<p><i class="bi bi-currency-dollar"></i>Rp. 5.000.000</p>
 
-
-				<h5>Deskripsi :</h5>
 				<p class="card-text">
-					<?= $loker['deskripsi'] ?>
+					Dibutuhkan FE Web Dev di perusahaan kami dengan jo...
 				</p>
 
-				<h5>Syarat :</h5>
-				<p class="card-text">
-					<?= $loker['syarat'] ?>
-				</p>
-
-				<?php
-				$now = strtotime(date('Y-m-d'));
-				$dl = strtotime($loker['deadline']);
-				$interval = abs($dl - $now);
-				$years = floor($interval / (365 * 60 * 60 * 24));
-				$months = floor(($interval - $years * 365 * 60 * 60 * 24) / (30 * 60 * 60 * 24));
-				$days = floor(($interval - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 * 24) / (60 * 60 * 24));
-				?>
-				<small class="text-muted">Deadline Pendaftaran : <?= $days ?> Hari lagi</small>
+				<small class="text-muted">Deadline Pendaftaran : 30 Hari lagi</small>
 				<div class="row" style="padding-top: 10px;">
 					<div class="col text-end">
-						<a class="btn btn-warning">
-							<i class="bi bi-star"></i>Favoritkan</a>
-					</div>
-					<div class="col text-end">
-						<a class="btn btn-success" href="<?= $loker['link'] ?>">
-							<i class="bi bi-telephone-fill"></i>WhatsApp</a>
+						<a href="<?= base_url('admin/loker_detail') ?>" class="btn btn-primary">Lihat Detail</a>
 					</div>
 
 				</div>
@@ -79,6 +61,7 @@
 			</div>
 		</div>
 	</div>
+
 
 </body>
 
