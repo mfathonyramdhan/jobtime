@@ -91,4 +91,15 @@ class M_admin extends CI_Model
     {
         return $this->db->insert('tb_jobs', $data);
     }
+
+    function loker_tersedia()
+    {
+        $this->db->select('*');
+        $this->db->from('tb_jobs');
+        $this->db->join('tb_jobs_status', 'tb_jobs_status.id_jobs_status = tb_jobs.id_jobs_status');
+        $this->db->join('tb_user', 'tb_jobs.id_user = tb_user.id_user');
+        $this->db->where('tb_jobs.id_jobs_status', 2);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 }

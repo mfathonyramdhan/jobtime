@@ -31,42 +31,47 @@
 
 	<div class="card shadow p-3 mb-5 bg-white rounded" style="margin-right: 20px; margin-left: 20px; margin-bottom: 100px;">
 		<div class="card-content">
-			<img class="card-img-top img-fluid" src="<?php echo base_url('assets/images/logo/logo.png') ?>" alt="Card image cap">
+			<img class="card-img-top img-fluid" src="<?php echo base_url('assets/images/logo_perusahaan/' . $loker['logo']) ?>" alt="Card image cap">
 			<div class="card-body">
-				<h4 class="card-title" style="padding-bottom: 10px;">Front-End Web Developer</h4>
+				<h4 class="card-title" style="padding-bottom: 10px;"><?= $loker['judul'] ?></h4>
 				<p> <i class="bi bi-building"></i>
-					PT. Jaya Makmur Techno</p>
+					<?= $loker['perusahaan_nama'] ?></p>
 				<div class="row">
 					<div class="col">
-						<p> <i class="bi bi-geo-alt"> </i>Jawa Timur - Jember</p>
+						<p> <i class="bi bi-geo-alt"> </i><?= $loker['perusahaan_lokasi'] ?></p>
 					</div>
 				</div>
 
 				<h5>Gaji</h5>
-				<p><i class="bi bi-currency-dollar"></i>Rp. 5.000.000</p>
+				<p><i class="bi bi-currency-dollar"></i><?= "Rp " . number_format($loker['gaji'], 0, ',', '.'); ?></p>
 
 
 				<h5>Deskripsi :</h5>
 				<p class="card-text">
-					Dibutuhkan FE Web Dev di perusahaan kami dengan jobdesk sebagai berikut : <br> - Mengatur tampilan website dan maintenance UI / UX <br> - Ngoding frontend sampe subuh <br> - Tau github
+					<?= $loker['deskripsi'] ?>
 				</p>
 
 				<h5>Syarat :</h5>
 				<p class="card-text">
-					1. S1 Teknologi Informasi, <br>
-					2. Mampu Bekerja Sama dengan Tim,<br>
-					3. Mampu bekerja dibawah tekanan,<br>
-					4. Menyukai tantangan
+					<?= $loker['syarat'] ?>
 				</p>
 
-				<small class="text-muted">Deadline Pendaftaran : 30 Hari lagi</small>
+				<?php
+				$now = strtotime(date('Y-m-d'));
+				$dl = strtotime($loker['deadline']);
+				$interval = abs($dl - $now);
+				$years = floor($interval / (365 * 60 * 60 * 24));
+				$months = floor(($interval - $years * 365 * 60 * 60 * 24) / (30 * 60 * 60 * 24));
+				$days = floor(($interval - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 * 24) / (60 * 60 * 24));
+				?>
+				<small class="text-muted">Deadline Pendaftaran : <?= $days ?> Hari lagi</small>
 				<div class="row" style="padding-top: 10px;">
 					<div class="col text-end">
 						<a class="btn btn-warning">
 							<i class="bi bi-star"></i>Favoritkan</a>
 					</div>
 					<div class="col text-end">
-						<a class="btn btn-success">
+						<a class="btn btn-success" href="<?= $loker['link'] ?>">
 							<i class="bi bi-telephone-fill"></i>WhatsApp</a>
 					</div>
 
