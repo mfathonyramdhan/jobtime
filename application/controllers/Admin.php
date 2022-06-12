@@ -63,14 +63,6 @@ class Admin extends CI_Controller
         $this->load->view('form-edit-admin', $data);
     }
 
-    public function update_myprofile()
-    {
-        $data['title'] = 'Update MyProfile | JobTime';
-
-        $this->load->view('template/meta', $data);
-        $this->load->view('user-update-myprofile');
-    }
-
     public function favorit()
     {
         $data['title'] = 'Favorit | JobTime';

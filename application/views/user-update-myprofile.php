@@ -65,39 +65,39 @@ if (!empty($pesan)) {
 							<div class="card card-primary card-outline">
 								<div class="card-body box-profile shadow p-3 mb-5 bg-white rounded">
 									<div class="text-center">
-										<img class="profile-user-img img-fluid img-circle" src="<?php echo base_url('assets/images/foto_profil/2.jpg') ?>" alt="User profile picture">
+										<img class="profile-user-img img-fluid img-circle" src="<?php echo base_url('assets/images/foto_profil/' . $data_user['foto']) ?>" alt="User profile picture">
 									</div>
 
-									<h3 class="profile-username text-center" style="margin-top: 10px;">Toni</h3>
+									<h3 class="profile-username text-center" style="margin-top: 10px;"><?= $data_user['nama'] ?></h3>
 
 									<p class="text-muted text-center">
-										mfathonyramdhan@gmail.com </p>
+										<?= $data_user['email'] ?> </p>
 
 									<strong><i class="fas fa-map-marker-alt mr-1"></i> No. HP</strong>
 
 									<p class="text-muted">
-										0895337337339 </p>
+										<?= $data_user['no_hp'] ?> </p>
 
 									<hr>
 
 									<strong><i class="fas fa-book mr-1"></i> Jenis Kelamin</strong>
 
 									<p class="text-muted">
-										Laki - Laki</p>
+										<?= $data_user['jenis_kelamin'] ?></p>
 
 									<hr>
 
-									<strong><i class="fas fa-map-marker-alt mr-1"></i> Tempat / Tgl. Lahir</strong>
+									<strong><i class="fas fa-map-marker-alt mr-1"></i>Tgl. Lahir</strong>
 
 									<p class="text-muted">
-										Jember, 2000-02-22 </p>
+										<?= $data_user['tgl_lahir'] ?> </p>
 
 									<hr>
 
 									<strong><i class="fas fa-map-marker-alt mr-1"></i> Alamat</strong>
 
 									<p class="text-muted">
-										Jl. Semeru Situbondo </p>
+										<?= $data_user['alamat'] ?> </p>
 
 									<hr>
 
@@ -117,7 +117,7 @@ if (!empty($pesan)) {
 					<div class="card-content">
 						<h4 class="card-title text-center">Update My Profile</h4>
 						<div class="card-body">
-							<form class="form form-vertical" method="POST" action="<?= base_url('admin/update_myprofile/') ?>" enctype="multipart/form-data">
+							<form class="form form-vertical" method="POST" action="<?= base_url('user/update_profile/') ?>" enctype="multipart/form-data">
 								<div class="form-body">
 									<div class="row">
 
@@ -126,13 +126,13 @@ if (!empty($pesan)) {
 												<strong>(1/3) Informasi Akun</strong>
 											</div>
 										</div>
-										<!-- <input type="hidden" name="id_user" value="<?= $akun['id_user'] ?>">
-										<input type="hidden" name="id_role" value="<?= $akun['id_role'] ?>"> -->
+										<input type="hidden" name="id_user" value="<?= $data_user['id_user'] ?>">
+										<input type="hidden" name="id_role" value="<?= $data_user['id_role'] ?>">
 										<div class="col-md-auto">
 											<div class="form-group has-icon-left">
 												<label for="first-name-icon">Nama Lengkap</label>
 												<div class="position-relative">
-													<input type="text" class="form-control" placeholder="Input nama lengkap baru" id="first-name-icon" name="nama" value="<#?= $akun['nama'] ?>" />
+													<input type="text" class="form-control" placeholder="Input nama lengkap baru" id="first-name-icon" name="nama" value="<?= $data_user['nama'] ?>" />
 													<div class="form-control-icon">
 														<i class="bi bi-person"></i>
 													</div>
@@ -143,7 +143,7 @@ if (!empty($pesan)) {
 											<div class="form-group has-icon-left">
 												<label for="email-id-icon">Email</label>
 												<div class="position-relative">
-													<input type="text" class="form-control" placeholder="Input email baru" id="email-id-icon" name="email" value="<#?= $akun['email'] ?>" />
+													<input type="text" class="form-control" placeholder="Input email baru" id="email-id-icon" name="email" value="<?= $data_user['email'] ?>" />
 													<div class="form-control-icon">
 														<i class="bi bi-envelope"></i>
 													</div>
@@ -171,7 +171,7 @@ if (!empty($pesan)) {
 												<div class="form-group has-icon-left">
 													<label for="mobile-id-icon">No. HP</label>
 													<div class="position-relative">
-														<input type="text" class="form-control" placeholder="Input nomor hp. baru" id="mobile-id-icon" name="no_hp" value="<#?= $akun['no_hp'] ?>" />
+														<input type="text" class="form-control" placeholder="Input nomor hp. baru" id="mobile-id-icon" name="no_hp" value="<?= $data_user['no_hp'] ?>" />
 														<div class="form-control-icon">
 															<i class="bi bi-phone"></i>
 														</div>
@@ -182,7 +182,7 @@ if (!empty($pesan)) {
 												<div class="form-group has-icon-left">
 													<label for="date-id-icon">Tanggal Lahir</label>
 													<div class="position-relative">
-														<input type="date" class="form-control" placeholder="Update tanggal lahir" id="date-id-icon" name="tgl_lahir" value="<#?= $akun['tgl_lahir'] ?>" />
+														<input type="date" class="form-control" placeholder="Update tanggal lahir" id="date-id-icon" name="tgl_lahir" value="<?= $data_user['tgl_lahir'] ?>" />
 														<div class="form-control-icon">
 															<i class="bi bi-calendar"></i>
 														</div>
@@ -196,14 +196,18 @@ if (!empty($pesan)) {
 														<select class="form-select" id="basicSelect" name="jenis_kelamin">
 
 
-															<!-- <option value="Laki - Laki" <#?php if ($akun['jenis_kelamin'] == 'Laki - Laki') {
+															<!-- <option value="Laki - Laki" <#?php if ($data_user['jenis_kelamin'] == 'Laki - Laki') {
 																							echo 'selected="selected"';
 																						} ?>>Laki - Laki</option>
-															<option value="Perempuan" <#?php if ($akun['jenis_kelamin'] == 'Perempuan') {
+															<option value="Perempuan" <#?php if ($data_user['jenis_kelamin'] == 'Perempuan') {
 																							echo 'selected="selected"';
 																						} ?>>Perempuan</option> -->
-															<option value="">Laki- Laki</option>
-															<option value="">Perempuan</option>
+															<option value="Laki- Laki" <?php if ($data_user['jenis_kelamin'] == 'Laki - Laki') {
+																							echo 'selected="selected"';
+																						} ?>>Laki- Laki</option>
+															<option value="Perempuan" <?php if ($data_user['jenis_kelamin'] == 'Perempuan') {
+																							echo 'selected="selected"';
+																						} ?>>Perempuan</option>
 														</select>
 													</div>
 												</div>
@@ -211,7 +215,7 @@ if (!empty($pesan)) {
 											<div class="col-md-auto">
 												<div class="form-group">
 													<label for="formFile">Foto</label>
-													<input type="hidden" name="image1" value="<#?= $akun['foto'] ?>">
+													<input type="hidden" name="image1" value="<?= $data_user['foto'] ?>">
 													<input type="file" class="form-control" placeholder="" id="formFile" name="image" id="image" />
 												</div>
 											</div>
@@ -225,7 +229,7 @@ if (!empty($pesan)) {
 											<div class="form-group has-icon-left">
 												<label for="#">Provinsi</label>
 												<div class="position-relative">
-													<input type="text" class="form-control" placeholder="Input provinsi baru" id="provinsi" name="provinsi" value="<#?= $akun['provinsi'] ?>" />
+													<input type="text" class="form-control" placeholder="Input provinsi baru" id="provinsi" name="provinsi" value="<?= $data_user['provinsi'] ?>" />
 													<div class="form-control-icon">
 														<i class="bi bi-map"></i>
 													</div>
@@ -236,7 +240,7 @@ if (!empty($pesan)) {
 											<div class="form-group has-icon-left">
 												<label for="#">Kota</label>
 												<div class="position-relative">
-													<input type="text" class="form-control" placeholder="Input kota baru" id="kota" name="kota" value="<#?= $akun['kota'] ?>" />
+													<input type="text" class="form-control" placeholder="Input kota baru" id="kota" name="kota" value="<?= $data_user['kota'] ?>" />
 													<div class="form-control-icon">
 														<i class="bi bi-geo"></i>
 													</div>
@@ -247,7 +251,7 @@ if (!empty($pesan)) {
 											<div class="form-group has-icon-left">
 												<label for="#">Kecamatan</label>
 												<div class="position-relative">
-													<input type="text" class="form-control" placeholder="Input kecamatan baru" id="kecamatan" name="kecamatan" value="<#?= $akun['kecamatan'] ?>" />
+													<input type="text" class="form-control" placeholder="Input kecamatan baru" id="kecamatan" name="kecamatan" value="<?= $data_user['kecamatan'] ?>" />
 													<div class="form-control-icon">
 														<i class="bi bi-geo"></i>
 													</div>
@@ -258,7 +262,7 @@ if (!empty($pesan)) {
 											<div class="form-group has-icon-left">
 												<label for="#">Desa</label>
 												<div class="position-relative">
-													<input type="text" class="form-control" placeholder="Input desa baru" id="desa" name="desa" value="<#?= $akun['desa'] ?>" />
+													<input type="text" class="form-control" placeholder="Input desa baru" id="desa" name="desa" value="<?= $data_user['desa'] ?>" />
 													<div class="form-control-icon">
 														<i class="bi bi-geo-alt"></i>
 													</div>
@@ -269,7 +273,7 @@ if (!empty($pesan)) {
 											<div class="form-group has-icon-left">
 												<label for="#">Alamat</label>
 												<div class="position-relative">
-													<input type="text" class="form-control" placeholder="Input alamat baru" id="#" name="alamat" value="<#?= $akun['alamat'] ?>" />
+													<input type="text" class="form-control" placeholder="Input alamat baru" id="#" name="alamat" value="<?= $data_user['alamat'] ?>" />
 													<div class="form-control-icon">
 														<i class="bi bi-signpost-2"></i>
 													</div>
