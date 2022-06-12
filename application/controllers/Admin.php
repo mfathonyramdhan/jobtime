@@ -174,16 +174,103 @@ class Admin extends CI_Controller
         $this->load->view('data-loker', $data);
     }
 
-    public function edit_loker()
+    public function edit_loker($id_loker)
     {
         $data['title'] = 'Edit Loker | JobTime';
-        // $data['data_user'] = $this->M_admin->data_user($this->session->userdata('id_user'));
-        // $data['daftar_loker'] = $this->M_admin->daftar_loker();;
+
+        $data['data_user'] = $this->M_admin->data_user($this->session->userdata('id_user'));
+        $data['loker'] = $this->M_admin->data_loker($id_loker);
+
 
         $this->load->view('template/meta', $data);
         $this->load->view('template/sidebar', $data);
         $this->load->view('form-edit-loker', $data);
     }
+
+
+    public function update_loker()
+    {
+        $pesan = array();
+
+        $config['upload_path']          = 'assets/images/logo_perusahaan';  // folder upload 
+        $config['allowed_types']        = 'gif|jpg|png|jpeg'; // jenis file
+        $config['overwrite']            = TRUE;
+        $config['max_size']             = 8000;
+
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+        if (!$this->upload->do_upload('image') && $_FILES['image']['size'] != 0) //sesuai dengan name pada form 
+        {
+            array_push($pesan, $this->upload->display_errors());
+        }
+
+        $file = $this->upload->data();
+        $image = $_FILES['image']['size'] != 0 ? $file['file_name'] : $this->input->post('image1');
+
+        $date = strtotime(htmlspecialchars($this->input->post('deadline')));
+
+        $data = [
+            'logo' => $image,
+            'perusahaan_nama' => htmlspecialchars($this->input->post('perusahaan_nama')),
+            'perusahaan_lokasi' => htmlspecialchars($this->input->post('perusahaan_lokasi')),
+            'judul' => htmlspecialchars($this->input->post('judul')),
+            'gaji' => (int)htmlspecialchars($this->input->post('gaji')),
+            'deadline' => date('Y-m-d H:i:s', $date),
+            'deskripsi' => htmlspecialchars($this->input->post('deskripsi')),
+            'syarat' => htmlspecialchars($this->input->post('syarat')),
+            'id_jobs_status' => htmlspecialchars($this->input->post('id_jobs_status')),
+            'link' => htmlspecialchars($this->input->post('link')),
+            'updated_at' => date('Y-m-d H:i:s')
+        ];
+
+        $where = array(
+            'id_jobs' => htmlspecialchars($this->input->post('id_jobs'))
+        );
+
+        // var_dump($data);
+        // die;
+
+        if (empty($pesan)) {
+            $result = $this->M_admin->update_loker($where, $data);
+        } else {
+            $this->session->set_flashdata('pesan', array(
+                'status_pesan' => false,
+                'isi_pesan' => 'Isi Form Dengan Valid'
+            ));
+            redirect('admin/edit_loker/' . $this->input->post('id_jobs'));
+        }
+        if ($result == true) {
+            $this->session->set_flashdata('pesan', array(
+                'status_pesan' => true,
+                'isi_pesan' => 'Update Loker Berhasil'
+            ));
+            redirect('admin/daftar_loker');
+        } else {
+            $this->session->set_flashdata('pesan', array(
+                'status_pesan' => false,
+                'isi_pesan' => 'Update Loker Gagal'
+            ));
+            redirect('admin/edit_loker/' . $this->input->post('id_jobs'));
+        }
+    }
+
+    public function hapus_loker($id_jobs)
+    {
+        $where = array('id_jobs' => $id_jobs);
+        $result = $this->M_admin->hapus_loker($where, 'tb_jobs');
+        if ($result == true) {
+            $this->session->set_flashdata('pesan', array(
+                'status_pesan' => true,
+                'isi_pesan' => 'Loker Berhasil Dihapus'
+            ));
+            redirect('admin/daftar_loker');
+        } else {
+            $this->session->set_flashdata('pesan', array(
+                'status_pesan' => true,
+                'isi_pesan' => 'Loker Berhasil Dihapus'
+            ));
+            redirect('admin/daftar_loker');
+        }
 
     public function form_create_loker()
     {
@@ -195,6 +282,7 @@ class Admin extends CI_Controller
         $this->load->view('template/meta', $data);
         $this->load->view('template/sidebar', $data);
         $this->load->view('form-create-loker', $data);
+
     }
 
     public function logout()
@@ -203,5 +291,3 @@ class Admin extends CI_Controller
         redirect('auth');
     }
 }
-
-// testing pull request n branch

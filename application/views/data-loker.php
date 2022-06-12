@@ -1,3 +1,29 @@
+<?php
+$pesan = $this->session->flashdata('pesan');
+if (!empty($pesan)) {
+  if ($pesan['status_pesan'] == true && !empty($pesan)) {
+    echo '
+	<script>
+		Swal.fire({
+			title: "Berhasil",
+			text: "' . $pesan['isi_pesan'] . '",
+			type: "success",
+			confirmButtonText: "Close"
+		});
+	</script>';
+  } else if ($pesan['status_pesan'] == false && !empty($pesan)) {
+    echo '
+	<script>
+		Swal.fire({
+			title: "Gagal",
+			text: "' . $pesan['isi_pesan'] . '",
+			type: "error",
+			confirmButtonText: "Close"
+		});
+	</script>';
+  }
+}
+?>
 <div class="page-heading">
   <div class="page-title">
     <div class="row">
@@ -56,6 +82,7 @@
 
           </thead>
           <tbody>
+
             <?php if (count($daftar_loker) > 0) { ?>
               <?php $no = 1;
               foreach ($daftar_loker as $d) {
@@ -88,10 +115,19 @@
                   <td><?= $d['deadline'] ?></td>
                   <td><span class="badge bg-success"><?= $d['name_jobs_status'] ?></span></td>
                   <td><?= $d['link'] ?></td>
-                  <?php $created = strtotime($d['created_at']) ?>
-                  <td><?= date('Y-m-d', $created) ?></td>
-                  <?php $updated = strtotime($d['updated_at']) ?>
-                  <td><?= date('Y-m-d', $updated) ?></td>
+                  <td><?= $d['created_at'] ?></td>
+                  <td><?= $d['updated_at'] ?></td>
+                  <td>
+                    <!-- <a href="<#?= base_url('admin/edit_loker/' . $a['id_jobs']) ?>"> -->
+                    <a href="<?= base_url('admin/edit_loker/' . $d['id_jobs']) ?>">
+                      <span class="badge bg-primary" style="margin: 10px">Edit</span>
+                    </a>
+
+                    <!-- <a href="<#?= base_url('admin/hapus_loker/' . $a['id_jobs']) ?>"> -->
+                    <a href="<?= base_url('admin/hapus_loker/' . $d['id_jobs']) ?>" onclick="return confirm('Yakin ingin menghapus data ini?')">
+                      <span class="badge bg-danger">Hapus</span>
+                    </a>
+                  </td>
 
                 </tr>
               <?php } ?>
