@@ -30,48 +30,37 @@
 		<a href="#" class="btn btn-primary">+ Buat Postingan Loker</a>
 	</div>
 
-	<?php if (count($daftar_loker) > 0) { ?>
-		<?php foreach ($daftar_loker as $d) { ?>
-			<div class="card shadow p-3 mb-5 bg-white rounded" style="margin-right: 20px; margin-left: 20px;">
-				<div class="card-content">
-					<img class="card-img-top img-fluid" src="<?php echo base_url('assets/images/logo_perusahaan/' . $d['logo']) ?>" alt="Card image cap">
-					<div class="card-body">
-						<h4 class="card-title" style="padding-bottom: 10px;"><?= $d['judul'] ?></h4>
-						<p> <i class="bi bi-building"></i>
-							<?= $d['perusahaan_nama'] ?></p>
-						<div class="row">
-							<div class="col">
-								<p> <i class="bi bi-geo-alt"> </i><?= $d['perusahaan_lokasi'] ?></p>
-							</div>
-						</div>
-
-						<h5>Gaji</h5>
-						<p><i class="bi bi-currency-dollar"></i><?= "Rp " . number_format($d['gaji'], 0, ',', '.'); ?></p>
-
-						<p class="card-text">
-							<?= $d['deskripsi'] ?>
-						</p>
-						<?php
-						$now = strtotime(date('Y-m-d'));
-						$dl = strtotime($d['deadline']);
-						$interval = abs($dl - $now);
-						$years = floor($interval / (365 * 60 * 60 * 24));
-						$months = floor(($interval - $years * 365 * 60 * 60 * 24) / (30 * 60 * 60 * 24));
-						$days = floor(($interval - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 * 24) / (60 * 60 * 24));
-						?>
-						<small class="text-muted">Deadline Pendaftaran : <?= $days ?> Hari lagi</small>
-						<div class="row" style="padding-top: 10px;">
-							<div class="col text-end">
-								<a href="<?= base_url('user/loker_detail/' . $d['id_jobs']) ?>" class="btn btn-primary">Lihat Detail</a>
-							</div>
-
-						</div>
-
+	<div class="card shadow p-3 mb-5 bg-white rounded" style="margin-right: 20px; margin-left: 20px;">
+		<div class="card-content">
+			<img class="card-img-top img-fluid" src="<?php echo base_url('assets/images/logo/logo.png') ?>" alt="Card image cap">
+			<div class="card-body">
+				<h4 class="card-title" style="padding-bottom: 10px;">Front-End Web Developer</h4>
+				<p> <i class="bi bi-building"></i>
+					PT. Jaya Makmur Techno</p>
+				<div class="row">
+					<div class="col">
+						<p> <i class="bi bi-geo-alt"> </i>Jawa Timur - Jember</p>
 					</div>
 				</div>
+
+				<h5>Gaji</h5>
+				<p><i class="bi bi-currency-dollar"></i>Rp. 5.000.000</p>
+
+				<p class="card-text">
+					Dibutuhkan FE Web Dev di perusahaan kami dengan jo...
+				</p>
+
+				<small class="text-muted">Deadline Pendaftaran : 30 Hari lagi</small>
+				<div class="row" style="padding-top: 10px;">
+					<div class="col text-end">
+						<a href="<?= base_url('admin/loker_detail') ?>" class="btn btn-primary">Lihat Detail</a>
+					</div>
+
+				</div>
+
 			</div>
-		<?php } ?>
-	<?php } ?>
+		</div>
+	</div>
 
 
 </body>

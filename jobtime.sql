@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 12, 2022 at 07:26 PM
+-- Generation Time: Jun 10, 2022 at 06:39 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -39,8 +39,8 @@ CREATE TABLE `tb_jobs` (
   `gaji` int(30) DEFAULT NULL,
   `deskripsi` varchar(500) DEFAULT NULL,
   `syarat` varchar(500) DEFAULT NULL,
-  `jobs_created_at` datetime NOT NULL,
-  `jobs_updated_at` datetime DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `deadline` datetime NOT NULL,
   `link` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -49,9 +49,8 @@ CREATE TABLE `tb_jobs` (
 -- Dumping data for table `tb_jobs`
 --
 
-INSERT INTO `tb_jobs` (`id_jobs`, `id_user`, `id_jobs_status`, `logo`, `judul`, `perusahaan_nama`, `perusahaan_lokasi`, `gaji`, `deskripsi`, `syarat`, `jobs_created_at`, `jobs_updated_at`, `deadline`, `link`) VALUES
-(1, 1, 1, 'job1.png', 'Front-End Developer', 'PT. Djaya Tech. Solution', 'Jawa Timur - Jember', 6000000, 'Dibutuhkan FE Web Dev di perusahaan kami dengan jobdesk sebagai berikut : Mengatur tampilan website dan maintenance UI / UX', '1. S1 Teknologi Informasi, \r\n2. Mampu Bekerja Sama dengan Tim, \r\n3. Mampu bekerja dibawah tekanan, \r\n4. Menyukai tantangan', '2022-06-10 13:41:44', '2022-06-13 01:09:15', '2022-07-31 13:55:15', 'https://wa.me/+62895337337339'),
-(3, 1, 2, 'tenor.png', 'Programmer Node.Js (Expert', 'CV. Kreatindo', 'Sumbersari, Jember', 7000000, 'Dibutuhkan Programmer backend Node.JS untuk mengerjakan project berskala besar', '1. Memiliki pengalaman menggunakan Node.JS minimal 2 Tahun\r\n2. Familiar dengan MongoDB/MariaDB\r\n3. Memiliki pengalaman kerja minimal 1 Tahun\r\n4. Bersedia Work From Office (WFO)', '2022-06-12 21:21:46', '2022-06-12 21:21:46', '2022-06-30 11:59:00', 'https://wa.me/+628xx-xxxx-xxxx');
+INSERT INTO `tb_jobs` (`id_jobs`, `id_user`, `id_jobs_status`, `logo`, `judul`, `perusahaan_nama`, `perusahaan_lokasi`, `gaji`, `deskripsi`, `syarat`, `created_at`, `updated_at`, `deadline`, `link`) VALUES
+(1, 1, 1, 'job1.png', 'Front-End Developer', 'PT. Djaya Tech. Solution', 'Jawa Timur - Jember', 5000000, 'Dibutuhkan FE Web Dev di perusahaan kami dengan jobdesk sebagai berikut : Mengatur tampilan website dan maintenance UI / UX', '1. S1 Teknologi Informasi, \r\n2. Mampu Bekerja Sama dengan Tim, \r\n3. Mampu bekerja dibawah tekanan, \r\n4. Menyukai tantangan', '2022-06-09 06:41:44', '2022-06-09 06:41:44', '2022-07-31 13:39:15', 'https://wa.me/+62895337337339');
 
 -- --------------------------------------------------------
 
@@ -104,8 +103,7 @@ CREATE TABLE `tb_user` (
 
 INSERT INTO `tb_user` (`id_user`, `id_role`, `nama`, `email`, `password`, `no_hp`, `tgl_lahir`, `jenis_kelamin`, `foto`, `provinsi`, `kota`, `kecamatan`, `desa`, `alamat`, `created_at`, `updated_at`) VALUES
 (1, 1, 'Dave', 'dave@gmail.com', '1610838743cc90e3e4fdda748282d9b8', '081234081234', '2000-01-02', 'Laki - Laki', 'default.jpg', 'Jawa Timur', 'Jember', 'Sumbersari', 'Sumbersari', 'Jl. Kalimantan', '2022-06-09 06:37:17', '2022-06-10 16:21:43'),
-(2, 2, 'Toni', 'toni@gmail.com', 'aefe34008e63f1eb205dc4c4b8322253', '082345082345', '2000-02-02', 'Laki - Laki', 'default.jpg', 'Jawa Timur', 'Situbondo', 'Panji', 'Mimbaan', 'Jl. Semeru', '2022-06-09 06:39:02', '2022-06-09 06:39:02'),
-(3, 2, 'Arman', 'armanmaulanasaputra15@gmail.com', '66059a527018b32e4597dd27574929f6', NULL, NULL, NULL, 'default.jpg', NULL, NULL, NULL, NULL, NULL, '2022-06-12 14:29:13', '2022-06-12 14:29:13');
+(2, 2, 'Toni', 'toni@gmail.com', 'aefe34008e63f1eb205dc4c4b8322253', '082345082345', '2000-02-02', 'Laki - Laki', 'default.jpg', 'Jawa Timur', 'Situbondo', 'Panji', 'Mimbaan', 'Jl. Semeru', '2022-06-09 06:39:02', '2022-06-09 06:39:02');
 
 -- --------------------------------------------------------
 
@@ -165,7 +163,7 @@ ALTER TABLE `tb_user_role`
 -- AUTO_INCREMENT for table `tb_jobs`
 --
 ALTER TABLE `tb_jobs`
-  MODIFY `id_jobs` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_jobs` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_jobs_status`
