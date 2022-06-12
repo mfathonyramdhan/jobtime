@@ -185,6 +185,17 @@ class Admin extends CI_Controller
         $this->load->view('form-edit-loker', $data);
     }
 
+    public function form_create_loker()
+    {
+        $data['title'] = 'Buat Loker | JobTime';
+        // $data['data_user'] = $this->M_admin->data_user($this->session->userdata('id_user'));
+        // $data['daftar_loker'] = $this->M_admin->daftar_loker();
+
+        $this->load->view('template/meta', $data);
+        $this->load->view('template/sidebar', $data);
+        $this->load->view('form-create-loker', $data);
+    }
+
     public function logout()
     {
         session_destroy();

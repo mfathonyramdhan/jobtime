@@ -229,7 +229,7 @@
         <div class="card-body py-4 px-5">
           <div class="d-flex align-items-center">
             <div class="avatar avatar-xl">
-              <img src="assets/images/faces/2.jpg" alt="Admin Photo Profile" />
+              <img src="assets/images/foto_profil/<?= $data_user['foto'] ?>" alt="Admin Photo Profile" />
             </div>
             <div class="ms-3 name">
               <h5 class="font-bold">Admin</h5>
