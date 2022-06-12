@@ -124,8 +124,7 @@ class Auth extends CI_Controller
             redirect('auth/register');
         }
     }
-<<<<<<< Updated upstream
-=======
+
 
     public function register_user()
     {
@@ -166,21 +165,27 @@ class Auth extends CI_Controller
                 'status_pesan' => false,
                 'isi_pesan' => 'Isi Form Dengan Valid'
             ));
+
             redirect('auth/register_user');
+
+          
         }
         if ($result == true) {
             $this->session->set_flashdata('pesan', array(
                 'status_pesan' => true,
                 'isi_pesan' => 'Akun Berhasil Didaftarkan'
             ));
+
             redirect('auth');
+
         } else {
             $this->session->set_flashdata('pesan', array(
                 'status_pesan' => false,
                 'isi_pesan' => 'Akun Gagal Didaftarkan'
             ));
+
             redirect('auth/register_user');
         }
     }
->>>>>>> Stashed changes
+
 }
