@@ -60,7 +60,7 @@ if (!empty($pesan)) {
 					</div>
 					<div class="card-content">
 						<div class="card-body">
-							<form class="form form-vertical" method="POST" action="<#?= base_url('admin/create_loker/') ?>" enctype="multipart/form-data">
+							<form class="form form-vertical" method="POST" action="<?= base_url('admin/create_loker/') ?>" enctype="multipart/form-data">
 								<div class="form-body">
 									<div class="row">
 										<div class="divider divider-left">
@@ -68,15 +68,13 @@ if (!empty($pesan)) {
 												<strong>(1/3) Informasi Perusahaan</strong>
 											</div>
 										</div>
-										<!-- <input type="hidden" name="id_user" value="<?= $loker['id_user'] ?>">
-										<input type="hidden" name="id_jobs" value="<?= $loker['id_jobs'] ?>">
-										<input type="hidden" name="id_jobs_status" value="<?= $loker['id_jobs_status'] ?>"> -->
+
+										<input type="hidden" name="id_user" value="<?= $data_user['id_user'] ?>">
 
 										<div class="col">
 											<div class="form-group">
 												<label for="formFile">Logo Perusahaan</label>
-												<input type="hidden" name="image1">
-												<input type="file" class="form-control" placeholder="" id="formFile" name="image" id="image" />
+												<input type="file" class="form-control" placeholder="" id="formFile" name="image" id="image" required />
 											</div>
 										</div>
 
@@ -84,7 +82,7 @@ if (!empty($pesan)) {
 											<div class="form-group has-icon-left">
 												<label for="first-name-icon">Nama Perusahaan</label>
 												<div class="position-relative">
-													<input type="text" class="form-control" placeholder="Input Nama Perusahaan " id="first-name-icon" name="perusahaan_nama" />
+													<input type="text" class="form-control" placeholder="Input Nama Perusahaan " id="first-name-icon" name="perusahaan_nama" required />
 													<div class="form-control-icon">
 														<i class="bi bi-building"></i>
 													</div>
@@ -95,7 +93,7 @@ if (!empty($pesan)) {
 											<div class="form-group has-icon-left">
 												<label for="first-name-icon">Lokasi Perusahaan</label>
 												<div class="position-relative">
-													<input type="text" class="form-control" placeholder="Input Nama Lokasi Perusahaan" id="first-name-icon" name="perusahaan_lokasi" />
+													<input type="text" class="form-control" placeholder="Input Nama Lokasi Perusahaan" id="first-name-icon" name="perusahaan_lokasi" required />
 													<div class="form-control-icon">
 														<i class="bi bi-geo-alt"></i>
 													</div>
@@ -124,7 +122,7 @@ if (!empty($pesan)) {
 													<div class="form-group has-icon-left">
 														<label for="first-name-icon">Judul Loker</label>
 														<div class="position-relative">
-															<input type="text" class="form-control" placeholder="Input Judul Lowongan Pekerjaan " id="first-name-icon" name="judul" />
+															<input type="text" class="form-control" placeholder="Input Judul Lowongan Pekerjaan " id="first-name-icon" name="judul" required />
 															<div class="form-control-icon">
 																<i class="bi bi-type"></i>
 															</div>
@@ -135,7 +133,7 @@ if (!empty($pesan)) {
 													<div class="form-group has-icon-left">
 														<label for="mobile-id-icon">Gaji</label>
 														<div class="position-relative">
-															<input type="number" class="form-control" placeholder="ex : 5000000" id="mobile-id-icon" name="gaji" />
+															<input type="number" class="form-control" placeholder="ex : 5000000" id="mobile-id-icon" name="gaji" required />
 															<div class="form-control-icon">
 																Rp.
 															</div>
@@ -146,7 +144,7 @@ if (!empty($pesan)) {
 													<div class="form-group has-icon-left">
 														<label for="date-id-icon">Deadline Pendaftaran Loker</label>
 														<div class="position-relative">
-															<input type="date" class="form-control" placeholder="Input tanggal deadline loker " id="date-id-icon" name="deadline" />
+															<input type="datetime-local" class="form-control" placeholder="Input tanggal deadline loker " id="date-id-icon" name="deadline" required />
 															<div class="form-control-icon">
 																<i class="bi bi-calendar"></i>
 															</div>
@@ -158,7 +156,7 @@ if (!empty($pesan)) {
 												<div class="form-group has-icon-left">
 													<label for="first-name-icon">Deskripsi Loker</label>
 													<div class="position-relative">
-														<textarea type="text" class="form-control" placeholder="Input Deskripsi Loker" id="first-name-icon" name="deskripsi"></textarea>
+														<textarea type="text" class="form-control" placeholder="Input Deskripsi Loker" id="first-name-icon" name="deskripsi" required></textarea>
 														<div class="form-control-icon">
 															<i class="bi bi-justify-left"></i>
 														</div>
@@ -170,7 +168,7 @@ if (!empty($pesan)) {
 													<label for="first-name-icon">Syarat Loker</label>
 													<div class="position-relative">
 
-														<textarea type="text" class="form-control" placeholder="Input Syarat Loker " id="first-name-icon" name="syarat"></textarea>
+														<textarea type="text" class="form-control" placeholder="Input Syarat Loker " id="first-name-icon" name="syarat" required></textarea>
 														<div class="form-control-icon">
 															<i class="bi bi-list-ol"></i>
 														</div>
@@ -185,29 +183,14 @@ if (!empty($pesan)) {
 										</div>
 										<div class="divider divider-left">
 											<div class="divider-text">
-												<strong>(3/3) Status Loker & Direct LInk</strong>
-											</div>
-										</div>
-										<div class="col-md-auto">
-											<div class="form-group has-icon-left">
-												<label for="#">Status Jobs</label>
-												<div class="position-relative">
-													<select class="form-select" id="basicSelect" name="id_jobs_status">
-														<!-- <#?php if ($loker['id_jobs_status'] == 1) { ?> -->
-														<option selected disabled>Pilih Status Loker</option>
-														<option value="Belum direview">Belum direview</option>
-														<option value="Terkonfirmasi">Terkonfirmasi</option>
-														<option value="Kadaluarsa">Kadaluarsa</option>
-
-													</select>
-												</div>
+												<strong>(3/3) Direct LInk</strong>
 											</div>
 										</div>
 										<div class="col-md-auto">
 											<div class="form-group has-icon-left">
 												<label for="#">Link</label>
 												<div class="position-relative">
-													<input type="text" class="form-control" placeholder="Ex : https://wa.me/+628xx-xxxx-xxxx" id="link" name="link" />
+													<input type="text" class="form-control" placeholder="Ex : https://wa.me/+628xx-xxxx-xxxx" id="link" name="link" required />
 													<div class="form-control-icon">
 														<i class="bi bi-link-45deg"></i>
 													</div>

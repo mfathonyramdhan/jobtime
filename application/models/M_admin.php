@@ -86,4 +86,9 @@ class M_admin extends CI_Model
         $this->db->where($where);
         $this->db->delete($table);
     }
+
+    function tambah_loker($data)
+    {
+        return $this->db->insert('tb_jobs', $data);
+    }
 }

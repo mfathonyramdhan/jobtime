@@ -38,6 +38,12 @@ class Auth extends CI_Controller
                     'isi_pesan' => 'Berhasil Login, Selamat Datang!'
                 ));
                 redirect('admin');
+            } elseif ($user['id_role'] == 2) {
+                $this->session->set_flashdata('pesan', array(
+                    'status_pesan' => true,
+                    'isi_pesan' => 'Berhasil Login, Selamat Datang!'
+                ));
+                redirect('user');
             } else {
                 $this->session->set_flashdata('pesan', array(
                     'status_pesan' => false,
@@ -119,6 +125,7 @@ class Auth extends CI_Controller
         }
     }
 
+
     public function register_user()
     {
         $this->load->view('auth-register-user');
@@ -158,20 +165,27 @@ class Auth extends CI_Controller
                 'status_pesan' => false,
                 'isi_pesan' => 'Isi Form Dengan Valid'
             ));
-            redirect('auth/register');
+
+            redirect('auth/register_user');
+
+          
         }
         if ($result == true) {
             $this->session->set_flashdata('pesan', array(
                 'status_pesan' => true,
                 'isi_pesan' => 'Akun Berhasil Didaftarkan'
             ));
-            redirect('auth/login');
+
+            redirect('auth');
+
         } else {
             $this->session->set_flashdata('pesan', array(
                 'status_pesan' => false,
                 'isi_pesan' => 'Akun Gagal Didaftarkan'
             ));
-            redirect('auth/register');
+
+            redirect('auth/register_user');
         }
     }
+
 }

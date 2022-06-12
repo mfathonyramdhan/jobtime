@@ -1,3 +1,4 @@
+
 <body style="padding-top: 20px;">
 	<!-- Bottom Navbar -->
 	<nav class="navbar bg-primary navbar-expand fixed-bottom d-md-none d-lg-none d-xl-none" style="height: 40px;">
@@ -62,6 +63,7 @@
 			</div>
 		</div>
 	</div>
+
 
 </body>
 
