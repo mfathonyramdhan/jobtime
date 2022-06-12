@@ -60,7 +60,7 @@ if (!empty($pesan)) {
 					</div>
 					<div class="card-content">
 						<div class="card-body">
-							<form class="form form-vertical" method="POST" action="<?= base_url('admin/update_akun/') ?>" enctype="multipart/form-data">
+							<form class="form form-vertical" method="POST" action="<?= base_url('admin/update_loker/') ?>" enctype="multipart/form-data">
 								<div class="form-body">
 									<div class="row">
 										<div class="divider divider-left">
@@ -68,14 +68,14 @@ if (!empty($pesan)) {
 												<strong>(1/3) Informasi Perusahaan</strong>
 											</div>
 										</div>
-										<!-- <input type="hidden" name="id_user" value="<?= $loker['id_user'] ?>">
+										<input type="hidden" name="id_user" value="<?= $loker['id_user'] ?>">
 										<input type="hidden" name="id_jobs" value="<?= $loker['id_jobs'] ?>">
-										<input type="hidden" name="id_jobs_status" value="<?= $loker['id_jobs_status'] ?>"> -->
+										<input type="hidden" name="id_jobs_status" value="<?= $loker['id_jobs_status'] ?>">
 
 										<div class="col">
 											<div class="form-group">
 												<label for="formFile">Logo Perusahaan</label>
-												<input type="hidden" name="image1" value="<#?= $loker['logo'] ?>">
+												<input type="hidden" name="image1" value="<?= $loker['logo'] ?>">
 												<input type="file" class="form-control" placeholder="" id="formFile" name="image" id="image" />
 											</div>
 										</div>
@@ -84,7 +84,7 @@ if (!empty($pesan)) {
 											<div class="form-group has-icon-left">
 												<label for="first-name-icon">Nama Perusahaan</label>
 												<div class="position-relative">
-													<input type="text" class="form-control" placeholder="Input Nama Perusahaan Baru" id="first-name-icon" name="perusahaan_nama" value="<#?= $loker['perusahaan_nama'] ?>" />
+													<input type="text" class="form-control" placeholder="Input Nama Perusahaan Baru" id="first-name-icon" name="perusahaan_nama" value="<?= $loker['perusahaan_nama'] ?>" />
 													<div class="form-control-icon">
 														<i class="bi bi-building"></i>
 													</div>
@@ -95,7 +95,7 @@ if (!empty($pesan)) {
 											<div class="form-group has-icon-left">
 												<label for="first-name-icon">Lokasi Perusahaan</label>
 												<div class="position-relative">
-													<input type="text" class="form-control" placeholder="Input Nama Lokasi Perusahaan" id="first-name-icon" name="perusahaan_lokasi" value="<#?= $loker['perusahaan_lokasi'] ?>" />
+													<input type="text" class="form-control" placeholder="Input Nama Lokasi Perusahaan" id="first-name-icon" name="perusahaan_lokasi" value="<?= $loker['perusahaan_lokasi'] ?>" />
 													<div class="form-control-icon">
 														<i class="bi bi-geo-alt"></i>
 													</div>
@@ -124,7 +124,7 @@ if (!empty($pesan)) {
 													<div class="form-group has-icon-left">
 														<label for="first-name-icon">Judul Loker</label>
 														<div class="position-relative">
-															<input type="text" class="form-control" placeholder="Input Judul Lowongan Pekerjaan Baru" id="first-name-icon" name="judul" value="<#?= $loker['judul'] ?>" />
+															<input type="text" class="form-control" placeholder="Input Judul Lowongan Pekerjaan Baru" id="first-name-icon" name="judul" value="<?= $loker['judul'] ?>" />
 															<div class="form-control-icon">
 																<i class="bi bi-type"></i>
 															</div>
@@ -135,7 +135,7 @@ if (!empty($pesan)) {
 													<div class="form-group has-icon-left">
 														<label for="mobile-id-icon">Gaji</label>
 														<div class="position-relative">
-															<input type="number" class="form-control" placeholder="ex : 5000000" id="mobile-id-icon" name="gaji" value="<#?= $loker['gaji'] ?>" />
+															<input type="number" class="form-control" placeholder="ex : 5000000" id="mobile-id-icon" name="gaji" value="<?= $loker['gaji'] ?>" />
 															<div class="form-control-icon">
 																Rp.
 															</div>
@@ -146,7 +146,8 @@ if (!empty($pesan)) {
 													<div class="form-group has-icon-left">
 														<label for="date-id-icon">Deadline Pendaftaran Loker</label>
 														<div class="position-relative">
-															<input type="date" class="form-control" placeholder="Input tanggal deadline loker baru" id="date-id-icon" name="deadline" value="<#?= $loker['deadline'] ?>" />
+															<?php $deadline = strtotime($loker['deadline']) ?>
+															<input type="datetime-local" class="form-control" placeholder="Input tanggal deadline loker baru" id="date-id-icon" name="deadline" value="<?= date('Y-m-d\TH:i:s', $deadline) ?>" />
 															<div class="form-control-icon">
 																<i class="bi bi-calendar"></i>
 															</div>
@@ -158,7 +159,7 @@ if (!empty($pesan)) {
 												<div class="form-group has-icon-left">
 													<label for="first-name-icon">Deskripsi Loker</label>
 													<div class="position-relative">
-														<textarea type="text" class="form-control" placeholder="Input Deskripsi Loker" id="first-name-icon" name="deskripsi" value="<#?= $loker['deskripsi'] ?>" rows="5"></textarea>
+														<textarea type="text" class="form-control" placeholder="Input Deskripsi Loker" id="first-name-icon" name="deskripsi" rows="5"><?= $loker['deskripsi'] ?></textarea>
 														<div class="form-control-icon">
 															<i class="bi bi-justify-left"></i>
 														</div>
@@ -170,7 +171,7 @@ if (!empty($pesan)) {
 													<label for="first-name-icon">Syarat Loker</label>
 													<div class="position-relative">
 
-														<textarea type="text" class="form-control" placeholder="Input Syarat Loker Baru" id="first-name-icon" name="syarat" value="<#?= $loker['syarat'] ?>" rows="5"></textarea>
+														<textarea type="text" class="form-control" placeholder="Input Syarat Loker Baru" id="first-name-icon" name="syarat" rows="5"><?= $loker['syarat'] ?></textarea>
 														<div class="form-control-icon">
 															<i class="bi bi-list-ol"></i>
 														</div>
@@ -195,9 +196,15 @@ if (!empty($pesan)) {
 													<select class="form-select" id="basicSelect" name="id_jobs_status">
 														<!-- <#?php if ($loker['id_jobs_status'] == 1) { ?> -->
 														<option>Pilih Status Loker</option>
-														<option value="Belum direview" selected>Belum direview</option>
-														<option value="Terkonfirmasi">Terkonfirmasi</option>
-														<option value="Kadaluarsa">Kadaluarsa</option>
+														<option value="1" <?php if ($loker['id_jobs_status'] == 1) {
+																				echo 'selected="selected"';
+																			} ?>>Belum direview</option>
+														<option value="2" <?php if ($loker['id_jobs_status'] == 2) {
+																				echo 'selected="selected"';
+																			} ?>>Terkonfirmasi</option>
+														<option value="3" <?php if ($loker['id_jobs_status'] == 3) {
+																				echo 'selected="selected"';
+																			} ?>>Kadaluarsa</option>
 
 													</select>
 												</div>
@@ -207,7 +214,7 @@ if (!empty($pesan)) {
 											<div class="form-group has-icon-left">
 												<label for="#">Link</label>
 												<div class="position-relative">
-													<input type="text" class="form-control" placeholder="Ex : https://wa.me/+628xx-xxxx-xxxx" id="link" name="link" value="<#?= $loker['link'] ?>" />
+													<input type="text" class="form-control" placeholder="Ex : https://wa.me/+628xx-xxxx-xxxx" id="link" name="link" value="<?= $loker['link'] ?>" />
 													<div class="form-control-icon">
 														<i class="bi bi-link-45deg"></i>
 													</div>

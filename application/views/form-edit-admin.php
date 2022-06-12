@@ -136,15 +136,13 @@ if (!empty($pesan)) {
 													<label for="#">Jenis Kelamin</label>
 													<div class="position-relative">
 														<select class="form-select" id="basicSelect" name="jenis_kelamin">
-															<?php if ($akun['jenis_kelamin'] == 'Laki - Laki') { ?>
-																<option>Pilih Jenis Kelamin</option>
-																<option value="Laki - Laki" selected>Laki - Laki</option>
-																<option value="Perempuan">Perempuan</option>
-															<?php } else { ?>
-																<option>Pilih Jenis Kelamin</option>
-																<option value="Laki - Laki">Laki - Laki</option>
-																<option value="Perempuan" selected>Perempuan</option>
-															<?php } ?>
+															<option>Pilih Jenis Kelamin</option>
+															<option value="Laki - Laki" <?php if ($akun['jenis_kelamin'] == 'Laki - Laki') {
+																							echo 'selected="selected"';
+																						} ?>>Laki - Laki</option>
+															<option value="Perempuan" <?php if ($akun['jenis_kelamin'] == 'Perempuan') {
+																							echo 'selected="selected"';
+																						} ?>>Perempuan</option>
 														</select>
 													</div>
 												</div>

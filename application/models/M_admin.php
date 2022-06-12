@@ -44,6 +44,17 @@ class M_admin extends CI_Model
         return $query->result_array();
     }
 
+    function data_loker($id_loker)
+    {
+        $this->db->select('*');
+        $this->db->from('tb_jobs');
+        $this->db->join('tb_jobs_status', 'tb_jobs_status.id_jobs_status = tb_jobs.id_jobs_status');
+        $this->db->join('tb_user', 'tb_jobs.id_user = tb_user.id_user');
+        $this->db->where('id_jobs', $id_loker);
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+
     function getDataAkun($id_user)
     {
         $this->db->select('*');
@@ -59,7 +70,18 @@ class M_admin extends CI_Model
         return $this->db->update('tb_user', $data, $where);
     }
 
+    function update_loker($where, $data)
+    {
+        return $this->db->update('tb_jobs', $data, $where);
+    }
+
     function hapus_akun($where, $table)
+    {
+        $this->db->where($where);
+        $this->db->delete($table);
+    }
+
+    function hapus_loker($where, $table)
     {
         $this->db->where($where);
         $this->db->delete($table);
