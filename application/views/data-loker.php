@@ -91,12 +91,12 @@ if (!empty($pesan)) {
                   <td><?= $no++ ?></td>
                   <td>
                     <!-- <a href="<#?= base_url('admin/edit_loker/' . $a['id_jobs']) ?>"> -->
-                    <a href="<?= base_url('admin/edit_loker/') ?>">
+                    <a href="<?= base_url('admin/edit_loker/' . $d['id_jobs']) ?>">
                       <span class="badge bg-primary" style="margin: 10px">Edit</span>
                     </a>
 
                     <!-- <a href="<#?= base_url('admin/hapus_loker/' . $a['id_jobs']) ?>"> -->
-                    <a href="">
+                    <a href="<?= base_url('admin/hapus_loker/' . $d['id_jobs']) ?>" onclick="return confirm('Yakin ingin menghapus data ini?')">
                       <span class="badge bg-danger">Hapus</span>
                     </a>
                   </td>
@@ -117,17 +117,7 @@ if (!empty($pesan)) {
                   <td><?= $d['link'] ?></td>
                   <td><?= $d['created_at'] ?></td>
                   <td><?= $d['updated_at'] ?></td>
-                  <td>
-                    <!-- <a href="<#?= base_url('admin/edit_loker/' . $a['id_jobs']) ?>"> -->
-                    <a href="<?= base_url('admin/edit_loker/' . $d['id_jobs']) ?>">
-                      <span class="badge bg-primary" style="margin: 10px">Edit</span>
-                    </a>
 
-                    <!-- <a href="<#?= base_url('admin/hapus_loker/' . $a['id_jobs']) ?>"> -->
-                    <a href="<?= base_url('admin/hapus_loker/' . $d['id_jobs']) ?>" onclick="return confirm('Yakin ingin menghapus data ini?')">
-                      <span class="badge bg-danger">Hapus</span>
-                    </a>
-                  </td>
 
                 </tr>
               <?php } ?>

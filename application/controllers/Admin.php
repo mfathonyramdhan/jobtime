@@ -271,6 +271,7 @@ class Admin extends CI_Controller
             ));
             redirect('admin/daftar_loker');
         }
+    }
 
     public function form_create_loker()
     {
@@ -282,7 +283,6 @@ class Admin extends CI_Controller
         $this->load->view('template/meta', $data);
         $this->load->view('template/sidebar', $data);
         $this->load->view('form-create-loker', $data);
-
     }
 
     public function logout()
