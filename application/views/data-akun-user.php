@@ -55,6 +55,7 @@ if (!empty($pesan)) {
           <thead>
             <tr>
               <th>No.</th>
+              <th>Aksi</th>
               <th>ID Akun</th>
               <th>Nama</th>
               <th>Email</th>
@@ -69,7 +70,7 @@ if (!empty($pesan)) {
               <th>Alamat</th>
               <th>Akun Dibuat</th>
               <th>Akun diupdate terakhir pada</th>
-              <th>Aksi</th>
+
             </tr>
           </thead>
           <tbody>
@@ -79,6 +80,15 @@ if (!empty($pesan)) {
               ?>
                 <tr>
                   <td><?= $no++ ?></td>
+                  <td>
+                    <a href="<?= base_url('admin/edit_akun/' . $a['id_user']) ?>">
+                      <span class="badge bg-primary" style="margin: 10px">Edit</span>
+                    </a>
+
+                    <a href="<?= base_url('admin/hapus_user/' . $a['id_user']) ?>" onclick="return confirm('Yakin ingin menghapus data ini?')">
+                      <span class="badge bg-danger">Hapus</span>
+                    </a>
+                  </td>
                   <td><?= $a['id_user'] ?></td>
                   <td><?= $a['nama'] ?></td>
                   <td><?= $a['email'] ?></td>
@@ -95,15 +105,7 @@ if (!empty($pesan)) {
                   <td><?= $a['alamat'] ?></td>
                   <td><?= $a['created_at'] ?></td>
                   <td><?= $a['updated_at'] ?></td>
-                  <td>
-                    <a href="<?= base_url('admin/edit_akun/' . $a['id_user']) ?>">
-                      <span class="badge bg-primary" style="margin: 10px">Edit</span>
-                    </a>
 
-                    <a href="<?= base_url('admin/hapus_user/' . $a['id_user']) ?>" onclick="return confirm('Yakin ingin menghapus data ini?')">
-                      <span class="badge bg-danger">Hapus</span>
-                    </a>
-                  </td>
                 </tr>
               <?php } ?>
             <?php } ?>
