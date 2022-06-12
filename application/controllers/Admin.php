@@ -163,7 +163,7 @@ class Admin extends CI_Controller
         }
     }
 
-    public function data_loker()
+    public function daftar_loker()
     {
         $data['title'] = 'Daftar Loker | JobTime';
         $data['data_user'] = $this->M_admin->data_user($this->session->userdata('id_user'));
@@ -174,6 +174,16 @@ class Admin extends CI_Controller
         $this->load->view('data-loker', $data);
     }
 
+    public function edit_loker()
+    {
+        $data['title'] = 'Edit Loker | JobTime';
+        // $data['data_user'] = $this->M_admin->data_user($this->session->userdata('id_user'));
+        // $data['daftar_loker'] = $this->M_admin->daftar_loker();
+
+        $this->load->view('template/meta', $data);
+        $this->load->view('template/sidebar', $data);
+        $this->load->view('form-edit-loker', $data);
+    }
 
     public function logout()
     {

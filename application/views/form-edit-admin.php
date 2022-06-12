@@ -28,7 +28,7 @@ if (!empty($pesan)) {
 	<div class="page-title">
 		<div class="row">
 			<div class="col-12 col-md-6 order-md-1 order-last">
-				<h3>Edit Data Akun Admin</h3>
+				<h3>Edit Data Akun</h3>
 				<!-- <p class="text-subtitle text-muted">
 									Tampilan edit data akun admin (nama admin)
 								</p> -->
@@ -40,10 +40,10 @@ if (!empty($pesan)) {
 							<a href="index.html">Dashboard</a>
 						</li>
 						<li class="breadcrumb-item">
-							<a href="data-akun-admin.html">Manajemen Akun - Data Akun Admin</a>
+							<a href="data-akun-admin.html">Manajemen Akun - Data Akun</a>
 						</li>
 						<li class="breadcrumb-item active" aria-current="page">
-							Edit Data Akun Admin
+							Edit Data Akun
 						</li>
 					</ol>
 				</nav>
@@ -56,7 +56,7 @@ if (!empty($pesan)) {
 			<div class="col">
 				<div class="card">
 					<div class="card-header">
-						<h4 class="card-title">Edit Data Akun Admin</h4>
+						<h4 class="card-title">Edit Data Akun</h4>
 					</div>
 					<div class="card-content">
 						<div class="card-body">

@@ -45,7 +45,7 @@
                             </a>
                             <ul class="submenu">
                                 <li class="submenu-item">
-                                    <a href="<?= base_url('admin/data_loker') ?>">Data Loker</a>
+                                    <a href="<?= base_url('admin/daftar_loker') ?>">Data Loker</a>
                                 </li>
                             </ul>
                         </li>

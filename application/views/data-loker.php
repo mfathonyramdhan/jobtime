@@ -11,7 +11,7 @@
         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a href="index.html">Dashboard</a>
+              <a href="<?= base_url('admin') ?>">Dashboard</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
               Manajemen Loker - Data Loker
@@ -29,7 +29,6 @@
           <thead>
             <tr>
               <th>No.</th>
-
               <th>ID Loker</th>
               <th>Akun Pembuat Loker</th>
               <th>Nama Perusahaan</th>
@@ -75,10 +74,12 @@
                   <?php $updated = strtotime($d['updated_at']) ?>
                   <td><?= date('Y-m-d', $updated) ?></td>
                   <td>
-                    <a href="">
+                    <!-- <a href="<#?= base_url('admin/edit_loker/' . $a['id_jobs']) ?>"> -->
+                    <a href="<?= base_url('admin/edit_loker/') ?>">
                       <span class="badge bg-primary" style="margin: 10px">Edit</span>
                     </a>
 
+                    <!-- <a href="<#?= base_url('admin/hapus_loker/' . $a['id_jobs']) ?>"> -->
                     <a href="">
                       <span class="badge bg-danger">Hapus</span>
                     </a>
