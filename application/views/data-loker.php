@@ -115,7 +115,7 @@ if (!empty($pesan)) {
                   <td><?= $d['deadline'] ?></td>
                   <td><span class="badge bg-success"><?= $d['name_jobs_status'] ?></span></td>
                   <td><?= $d['link'] ?></td>
-                  <td><?= $d['created_at'] ?></td>
+                  <td><?= $d['created_at']  ?></td>
                   <td><?= $d['updated_at'] ?></td>
                   <td>
                     <!-- <a href="<#?= base_url('admin/edit_loker/' . $a['id_jobs']) ?>"> -->
