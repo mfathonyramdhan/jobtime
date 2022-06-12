@@ -19,6 +19,5 @@
     <link rel="stylesheet" href="<?= base_url('assets/css/') ?>app.css" />
     <link rel="shortcut icon" href="<?= base_url('assets/images/') ?>favicon.svg" type="image/x-icon" />
     <link rel="stylesheet" href="<?= base_url('assets/vendors/sweetalert/dist/sweetalert2.min.css') ?>">
-
     <script type="text/javascript" src="<?= base_url('assets/vendors/sweetalert/dist/sweetalert2.all.min.js') ?>"></script>
 </head>

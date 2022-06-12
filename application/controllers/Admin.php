@@ -21,6 +21,20 @@ class Admin extends CI_Controller
         $this->load->view('template/js');
     }
 
+    public function homepage()
+    {
+        $data['title'] = 'Homepage | JobTime';
+        $this->load->view('template/meta', $data);
+        $this->load->view('homepage');
+    }
+
+    public function loker_detail()
+    {
+        $data['title'] = 'Detail Loker | JobTime';
+        $this->load->view('template/meta', $data);
+        $this->load->view('loker-detail');
+    }
+
     public function daftar_admin()
     {
         $data['title'] = 'Daftar Admin | JobTime';
@@ -284,6 +298,8 @@ class Admin extends CI_Controller
         $this->load->view('template/sidebar', $data);
         $this->load->view('form-create-loker', $data);
     }
+
+
 
     public function logout()
     {

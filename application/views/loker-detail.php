@@ -27,11 +27,9 @@
 
 		</ul>
 	</nav>
-	<div class="row" style="margin-right: 20px; margin-left: 20px; padding-bottom: 20px;">
-		<a href="#" class="btn btn-primary">+ Buat Postingan Loker</a>
-	</div>
 
-	<div class="card shadow p-3 mb-5 bg-white rounded" style="margin-right: 20px; margin-left: 20px;">
+
+	<div class="card shadow p-3 mb-5 bg-white rounded" style="margin-right: 20px; margin-left: 20px; margin-bottom: 100px;">
 		<div class="card-content">
 			<img class="card-img-top img-fluid" src="<?php echo base_url('assets/images/logo/logo.png') ?>" alt="Card image cap">
 			<div class="card-body">
@@ -47,14 +45,29 @@
 				<h5>Gaji</h5>
 				<p><i class="bi bi-currency-dollar"></i>Rp. 5.000.000</p>
 
+
+				<h5>Deskripsi :</h5>
 				<p class="card-text">
-					Dibutuhkan FE Web Dev di perusahaan kami dengan jo...
+					Dibutuhkan FE Web Dev di perusahaan kami dengan jobdesk sebagai berikut : <br> - Mengatur tampilan website dan maintenance UI / UX <br> - Ngoding frontend sampe subuh <br> - Tau github
+				</p>
+
+				<h5>Syarat :</h5>
+				<p class="card-text">
+					1. S1 Teknologi Informasi, <br>
+					2. Mampu Bekerja Sama dengan Tim,<br>
+					3. Mampu bekerja dibawah tekanan,<br>
+					4. Menyukai tantangan
 				</p>
 
 				<small class="text-muted">Deadline Pendaftaran : 30 Hari lagi</small>
 				<div class="row" style="padding-top: 10px;">
 					<div class="col text-end">
-						<a href="<?= base_url('admin/loker_detail') ?>" class="btn btn-primary">Lihat Detail</a>
+						<a class="btn btn-warning">
+							<i class="bi bi-star"></i>Favoritkan</a>
+					</div>
+					<div class="col text-end">
+						<a class="btn btn-success">
+							<i class="bi bi-telephone-fill"></i>WhatsApp</a>
 					</div>
 
 				</div>
