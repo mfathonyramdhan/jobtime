@@ -28,12 +28,7 @@ class Admin extends CI_Controller
         $this->load->view('homepage');
     }
 
-    public function loker_detail()
-    {
-        $data['title'] = 'Detail Loker | JobTime';
-        $this->load->view('template/meta', $data);
-        $this->load->view('loker-detail');
-    }
+
 
     public function daftar_admin()
     {
@@ -338,7 +333,7 @@ class Admin extends CI_Controller
 
         $data = [
             'id_user' => htmlspecialchars($this->input->post('id_user', true)),
-            'id_jobs_status' => 1,
+            'id_jobs_status' => 2,
             'logo' => $logo,
             'judul' => htmlspecialchars($this->input->post('judul', true)),
             'perusahaan_nama' => htmlspecialchars($this->input->post('perusahaan_nama', true)),

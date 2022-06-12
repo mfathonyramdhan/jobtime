@@ -9,7 +9,7 @@
 				</a>
 			</li>
 			<li class="nav-item">
-				<a href="<?= base_url('admin/homepage/') ?>" class="nav-link">
+				<a href="<?= base_url('user/index/') ?>" class="nav-link">
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-house-fill" viewBox="0 0 16 16">
 						<path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
 						<path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
@@ -30,42 +30,49 @@
 
 	<div class="card shadow p-3 mb-5 bg-white rounded" style="margin-right: 20px; margin-left: 20px; margin-bottom: 100px;">
 		<div class="card-content">
-			<img class="card-img-top img-fluid" src="<?php echo base_url('assets/images/logo/logo.png') ?>" alt="Card image cap">
+			<img class="card-img-top img-fluid" src="<?php echo base_url('assets/images/logo_perusahaan/' . $loker['logo']) ?>" alt="Card image cap">
 			<div class="card-body">
-				<h4 class="card-title" style="padding-bottom: 10px;">Front-End Web Developer</h4>
+				<h4 class="card-title" style="padding-bottom: 10px;"><?= $loker['judul'] ?></h4>
 				<p> <i class="bi bi-building"></i>
-					PT. Jaya Makmur Techno</p>
+					<?= $loker['perusahaan_nama'] ?></p>
 				<div class="row">
 					<div class="col">
-						<p> <i class="bi bi-geo-alt"> </i>Jawa Timur - Jember</p>
+						<p> <i class="bi bi-geo-alt"> </i><?= $loker['perusahaan_lokasi'] ?></p>
 					</div>
 				</div>
 
 				<h5>Gaji</h5>
-				<p><i class="bi bi-currency-dollar"></i>Rp. 5.000.000</p>
+				<p><i class="bi bi-currency-dollar"></i><?= "Rp " . number_format($loker['gaji'], 0, ',', '.'); ?></p>
 
 
 				<h5>Deskripsi :</h5>
 				<p class="card-text">
-					Dibutuhkan FE Web Dev di perusahaan kami dengan jobdesk sebagai berikut : <br> - Mengatur tampilan website dan maintenance UI / UX <br> - Ngoding frontend sampe subuh <br> - Tau github
+					<?= $loker['deskripsi'] ?>
+
 				</p>
 
 				<h5>Syarat :</h5>
 				<p class="card-text">
-					1. S1 Teknologi Informasi, <br>
-					2. Mampu Bekerja Sama dengan Tim,<br>
-					3. Mampu bekerja dibawah tekanan,<br>
-					4. Menyukai tantangan
+					<?= $loker['syarat'] ?>
+
 				</p>
 
-				<small class="text-muted">Deadline Pendaftaran : 30 Hari lagi</small>
+				<?php
+				$now = strtotime(date('Y-m-d'));
+				$dl = strtotime($loker['deadline']);
+				$interval = abs($dl - $now);
+				$years = floor($interval / (365 * 60 * 60 * 24));
+				$months = floor(($interval - $years * 365 * 60 * 60 * 24) / (30 * 60 * 60 * 24));
+				$days = floor(($interval - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 * 24) / (60 * 60 * 24));
+				?>
+				<small class="text-muted">Deadline Pendaftaran : <?= $days ?> Hari lagi</small>
 				<div class="row" style="padding-top: 10px;">
-					<div class="col text-end">
+					<!-- <div class="col text-end">
 						<a class="btn btn-warning">
 							<i class="bi bi-star"></i>Favoritkan</a>
-					</div>
+					</div> -->
 					<div class="col text-end">
-						<a class="btn btn-success">
+						<a class="btn btn-success" href="<?= $loker['link'] ?>">
 							<i class="bi bi-telephone-fill"></i>WhatsApp</a>
 					</div>
 

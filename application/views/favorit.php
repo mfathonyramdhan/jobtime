@@ -10,7 +10,7 @@
 				</a>
 			</li>
 			<li class="nav-item">
-				<a href="<?= base_url('admin/homepage/') ?>" class="nav-link">
+				<a href="<?= base_url('user/index/') ?>" class="nav-link">
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-house-fill" viewBox="0 0 16 16">
 						<path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
 						<path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
@@ -28,7 +28,7 @@
 		</ul>
 	</nav>
 	<div class="row" style="margin-right: 20px; margin-left: 20px; padding-bottom: 20px;">
-			</div>
+	</div>
 
 	<div class="card shadow p-3 mb-5 bg-white rounded" style="margin-right: 20px; margin-left: 20px;">
 		<div class="card-content">
@@ -53,7 +53,7 @@
 				<small class="text-muted">Deadline Pendaftaran : 30 Hari lagi</small>
 				<div class="row" style="padding-top: 10px;">
 					<div class="col text-end">
-						<a href="<?= base_url('admin/loker_detail') ?>" class="btn btn-primary">Lihat Detail</a>
+						<a href="<?= base_url('user/loker_detail') ?>" class="btn btn-primary">Lihat Detail</a>
 					</div>
 
 				</div>
