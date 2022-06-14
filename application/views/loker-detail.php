@@ -1,6 +1,6 @@
 <body style="padding-top: 20px;">
 	<!-- Bottom Navbar -->
-	<nav class="navbar bg-primary navbar-expand fixed-bottom d-md-none d-lg-none d-xl-none" style="height: 40px;">
+	<nav class="navbar bg-primary navbar-expand fixed-bottom d-md-none d-lg-none d-xl-none" style="height: 40px; padding: 0px;">
 		<ul class="navbar-nav nav-justified w-100">
 			<li class="nav-item">
 				<a href="<?= base_url('admin/favorit/') ?>" class="nav-link"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-star-fill" viewBox="0 0 16 16">
@@ -8,16 +8,16 @@
 					</svg>
 				</a>
 			</li>
-			<li class="nav-item">
+			<li class="nav-item" style="background-color: white;">
 				<a href="<?= base_url('user/index/') ?>" class="nav-link">
-					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-house-fill" viewBox="0 0 16 16">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#435ebe" class="bi bi-house-fill" viewBox="0 0 16 16">
 						<path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
 						<path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
 					</svg>
 				</a>
 			</li>
 			<li class="nav-item">
-				<a href="<?= base_url('admin/update_myprofile/') ?>" class="nav-link">
+				<a href="<?= base_url('user/update_myprofile/') ?>" class="nav-link">
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-person-fill" viewBox="0 0 16 16">
 						<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
 					</svg>
@@ -28,7 +28,7 @@
 	</nav>
 
 
-	<div class="card shadow p-3 mb-5 bg-white rounded" style="margin-right: 20px; margin-left: 20px; margin-bottom: 100px;">
+	<div class="card shadow p-3 bg-white rounded" style="margin-right: 20px; margin-left: 20px; margin-bottom: 65px;">
 		<div class="card-content">
 			<img class="card-img-top img-fluid" src="<?php echo base_url('assets/images/logo_perusahaan/' . $loker['logo']) ?>" alt="Card image cap">
 			<div class="card-body">
@@ -73,7 +73,7 @@
 					</div> -->
 					<div class="col text-end">
 						<a class="btn btn-success" href="<?= $loker['link'] ?>">
-							<i class="bi bi-telephone-fill"></i>WhatsApp</a>
+							<i class="bi bi-telephone-fill" style="padding-right: 5px; "></i>WhatsApp</a>
 					</div>
 
 				</div>

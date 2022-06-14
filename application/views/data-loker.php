@@ -109,16 +109,27 @@ if (!empty($pesan)) {
                   <td><?= $d['judul'] ?></td>
                   <td><?= $d['perusahaan_lokasi'] ?></td>
                   <td><?= "Rp " . number_format($d['gaji'], 0, ',', '.'); ?></td>
-
                   <td><?= $d['deskripsi'] ?></td>
                   <td><?= $d['syarat'] ?></td>
                   <td><?= $d['deadline'] ?></td>
-                  <td><span class="badge bg-success"><?= $d['name_jobs_status'] ?></span></td>
+                  <td>
+                    <?php if ($d['id_jobs_status'] == 1) { ?>
+                      <span class="badge bg-warning">
+                        Belum direview
+                      </span>
+                    <?php } elseif ($d['id_jobs_status'] == 2) { ?>
+                      <span class="badge bg-success">
+                        Terkonfirmasi
+                      </span>
+                    <?php } elseif ($d['id_jobs_status'] == 3) { ?>
+                      <span class="badge bg-danger">
+                        Kadaluarsa
+                      </span>
+                    <?php } ?>
+                  </td>
                   <td><?= $d['link'] ?></td>
                   <td><?= $d['created_at']  ?></td>
                   <td><?= $d['updated_at'] ?></td>
-
-
                 </tr>
               <?php } ?>
             <?php } ?>

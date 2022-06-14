@@ -25,7 +25,7 @@ if (!empty($pesan)) {
 }
 ?>
 
-<nav class="navbar bg-primary navbar-expand fixed-bottom d-md-none d-lg-none d-xl-none" style="height: 40px;">
+<nav class="navbar bg-primary navbar-expand fixed-bottom d-md-none d-lg-none d-xl-none" style="height: 40px;padding: 0px;">
 	<ul class="navbar-nav nav-justified w-100">
 		<li class="nav-item">
 			<a href="<?= base_url('admin/favorit/') ?>" class="nav-link"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-star-fill" viewBox="0 0 16 16">
@@ -41,9 +41,9 @@ if (!empty($pesan)) {
 				</svg>
 			</a>
 		</li>
-		<li class="nav-item">
-			<a href="<?= base_url('admin/update_myprofile/') ?>" class="nav-link">
-				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-person-fill" viewBox="0 0 16 16">
+		<li class="nav-item" style="background-color: white;">
+			<a href="<?= base_url('user/update_myprofile/') ?>" class="nav-link">
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#435ebe" class="bi bi-person-fill" viewBox="0 0 16 16">
 					<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
 				</svg>
 			</a>
@@ -54,8 +54,8 @@ if (!empty($pesan)) {
 
 <div class="page-heading" style="padding-top: 20px;">
 	<section id="basic-vertical-layouts">
-		<div class="row match-height">
-			<div class="col">
+		<div class="row" style="margin-right: 0px;">
+			<div class="col" style="padding-right: 0px;">
 				<div class="card shadow p-3 mb-5 bg-white rounded" style="margin-right: 20px; margin-left: 20px; margin-bottom: 100px;">
 					<div class="card-header">
 						<h4 class="card-title text-center">My Profile</h4>
@@ -99,7 +99,7 @@ if (!empty($pesan)) {
 									<p class="text-muted">
 										<?= $data_user['alamat'] ?> </p>
 
-									<hr>
+
 
 
 
@@ -115,6 +115,8 @@ if (!empty($pesan)) {
 					</div>
 
 					<div class="card-content">
+						<hr>
+
 						<h4 class="card-title text-center">Update My Profile</h4>
 						<div class="card-body">
 							<form class="form form-vertical" method="POST" action="<?= base_url('user/update_profile/') ?>" enctype="multipart/form-data">
@@ -214,7 +216,7 @@ if (!empty($pesan)) {
 											</div>
 											<div class="col-md-auto">
 												<div class="form-group">
-													<label for="formFile">Foto</label>
+													<label for="formFile">Ubah Foto Profil</label>
 													<input type="hidden" name="image1" value="<?= $data_user['foto'] ?>">
 													<input type="file" class="form-control" placeholder="" id="formFile" name="image" id="image" />
 												</div>
@@ -282,15 +284,13 @@ if (!empty($pesan)) {
 										</div>
 										<div class="divider divider-left">
 											<div class="divider-text">
-												<strong>*)</strong> Pastikan data diri anda sudah benar!
+												<strong>*)</strong> Pastikan data diri anda sudah benar sebelum klik update!
 											</div>
 										</div>
 										<div class="col-12 d-flex justify-content-end">
-											<button type="reset" class="btn btn-light-secondary me-1 mb-1">
-												Reset
-											</button>
+
 											<button type="submit" class="btn btn-primary me-1 mb-1">
-												Submit
+												Update
 											</button>
 										</div>
 									</div>
@@ -304,13 +304,7 @@ if (!empty($pesan)) {
 	</section>
 </div>
 
-<footer>
-	<div class="footer clearfix mb-0 text-muted">
-		<div class="float-start">
-			<p>2022 &copy; Copyright - JobTime</p>
-		</div>
-	</div>
-</footer>
+
 </div>
 </div>
 <?php $this->load->view('template/js') ?>

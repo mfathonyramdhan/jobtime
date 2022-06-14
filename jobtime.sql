@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2022 at 06:39 PM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Generation Time: Jun 13, 2022 at 07:11 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -39,8 +38,8 @@ CREATE TABLE `tb_jobs` (
   `gaji` int(30) DEFAULT NULL,
   `deskripsi` varchar(500) DEFAULT NULL,
   `syarat` varchar(500) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp(),
   `deadline` datetime NOT NULL,
   `link` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -50,7 +49,8 @@ CREATE TABLE `tb_jobs` (
 --
 
 INSERT INTO `tb_jobs` (`id_jobs`, `id_user`, `id_jobs_status`, `logo`, `judul`, `perusahaan_nama`, `perusahaan_lokasi`, `gaji`, `deskripsi`, `syarat`, `created_at`, `updated_at`, `deadline`, `link`) VALUES
-(1, 1, 1, 'job1.png', 'Front-End Developer', 'PT. Djaya Tech. Solution', 'Jawa Timur - Jember', 5000000, 'Dibutuhkan FE Web Dev di perusahaan kami dengan jobdesk sebagai berikut : Mengatur tampilan website dan maintenance UI / UX', '1. S1 Teknologi Informasi, \r\n2. Mampu Bekerja Sama dengan Tim, \r\n3. Mampu bekerja dibawah tekanan, \r\n4. Menyukai tantangan', '2022-06-09 06:41:44', '2022-06-09 06:41:44', '2022-07-31 13:39:15', 'https://wa.me/+62895337337339');
+(1, 1, 2, 'job1.png', 'Front-End Developer', 'PT. Djaya Tech. Solution', 'Jawa Timur - Jember', 5000000, 'Dibutuhkan FE Web Dev di perusahaan kami dengan jobdesk sebagai berikut : Mengatur tampilan website dan maintenance UI / UX', '1. S1 Teknologi Informasi, \r\n2. Mampu Bekerja Sama dengan Tim, \r\n3. Mampu bekerja dibawah tekanan, \r\n4. Menyukai tantangan', '2022-06-09 06:41:44', '2022-06-09 06:41:44', '2022-07-31 13:39:15', 'https://wa.me/+62895337337339'),
+(2, 4, 2, 'logo.png', 'Administrator', 'JobTime', 'Jawa Timur - Jember', 3000000, 'Jobdesk :\r\nMampu input data secara massal dengan efisien dan cepat\r\nMampu bekerjasama dengan tim', 'S1 Teknologi Informasi\r\nPengalaman Bekerja 2 Tahun di bidangnya', '2022-06-13 05:09:34', '2022-06-13 05:09:34', '2022-06-30 23:59:59', 'https://wa.me/+6282193014995');
 
 -- --------------------------------------------------------
 
@@ -93,8 +93,8 @@ CREATE TABLE `tb_user` (
   `kecamatan` varchar(30) DEFAULT NULL,
   `desa` varchar(30) DEFAULT NULL,
   `alamat` varchar(100) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -103,7 +103,8 @@ CREATE TABLE `tb_user` (
 
 INSERT INTO `tb_user` (`id_user`, `id_role`, `nama`, `email`, `password`, `no_hp`, `tgl_lahir`, `jenis_kelamin`, `foto`, `provinsi`, `kota`, `kecamatan`, `desa`, `alamat`, `created_at`, `updated_at`) VALUES
 (1, 1, 'Dave', 'dave@gmail.com', '1610838743cc90e3e4fdda748282d9b8', '081234081234', '2000-01-02', 'Laki - Laki', 'default.jpg', 'Jawa Timur', 'Jember', 'Sumbersari', 'Sumbersari', 'Jl. Kalimantan', '2022-06-09 06:37:17', '2022-06-10 16:21:43'),
-(2, 2, 'Toni', 'toni@gmail.com', 'aefe34008e63f1eb205dc4c4b8322253', '082345082345', '2000-02-02', 'Laki - Laki', 'default.jpg', 'Jawa Timur', 'Situbondo', 'Panji', 'Mimbaan', 'Jl. Semeru', '2022-06-09 06:39:02', '2022-06-09 06:39:02');
+(2, 2, 'Toni', 'toni@gmail.com', 'aefe34008e63f1eb205dc4c4b8322253', '082345082345', '2000-02-02', 'Laki - Laki', 'default.jpg', 'Jawa Timur', 'Situbondo', 'Panji', 'Mimbaan', 'Jl. Semeru', '2022-06-09 06:39:02', '2022-06-09 06:39:02'),
+(4, 2, 'Fathony', 'fathony@gmail.com', '0a1645fb84335f1532310e4675393441', '+62895337337339', '1999-12-20', 'Laki- Laki', '8.jpg', 'Jawa Timur', 'SITUBONDO', 'Panji', 'Mimbaan', 'MIMBAAN', '2022-06-13 02:23:56', '2022-06-13 03:04:16');
 
 -- --------------------------------------------------------
 
@@ -163,7 +164,7 @@ ALTER TABLE `tb_user_role`
 -- AUTO_INCREMENT for table `tb_jobs`
 --
 ALTER TABLE `tb_jobs`
-  MODIFY `id_jobs` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_jobs` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_jobs_status`
@@ -175,7 +176,7 @@ ALTER TABLE `tb_jobs_status`
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_user_role`
