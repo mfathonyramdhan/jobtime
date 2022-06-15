@@ -14,7 +14,7 @@ class Admin extends CI_Controller
     {
         $data['title'] = 'Dashboard | JobTime';
         $data['data_user'] = $this->M_admin->data_user($this->session->userdata('id_user'));
-
+        $data['jumlah_loker_status1'] = $this->M_admin->jumlah_loker_status1();
         $this->load->view('template/meta', $data);
         $this->load->view('template/sidebar', $data);
         $this->load->view('index', $data);

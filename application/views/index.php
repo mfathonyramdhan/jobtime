@@ -52,7 +52,7 @@
                   <h6 class="text-muted font-semibold">
                     Loker Belum direview
                   </h6>
-                  <h6 class="font-extrabold mb-0">3</h6>
+                  <h6 class="font-extrabold mb-0"><?= $jumlah_loker_status1 ?></h6>
                 </div>
               </div>
             </div>
@@ -232,7 +232,7 @@
               <img src="<?php echo base_url('assets/images/foto_profil/') . $data_user['foto'] ?>" alt="Admin Photo Profile" />
             </div>
             <div class="ms-3 name">
-              <h5 class="font-bold">Admin</h5>
+              <h5 class="font-bold">Halo, Admin</h5>
               <h6 class="text-muted mb-0"><?= $data_user['nama'] ?></h6>
             </div>
           </div>
