@@ -16,7 +16,8 @@
                     <ul class="menu">
                         <li class="sidebar-title">Admin Menu</li>
 
-                        <li class="sidebar-item active">
+                        <!-- <li class="sidebar-item active"> -->
+                        <li class="sidebar-item">
                             <a href="<?= base_url('admin') ?>" class="sidebar-link">
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Dashboard</span>
@@ -54,10 +55,15 @@
                         </li>
 
                         <li class="sidebar-item">
+
                             <a href="<?= base_url('admin/logout') ?>" class="sidebar-link">
-                                <i class="bi bi-box-arrow-right"></i>
-                                <span>Logout</span>
+
+                                <i class="bi bi-box-arrow-left" style="color: lightcoral;"></i>
+                                <span style="color: lightcoral;">Logout</span>
+
+
                             </a>
+
                         </li>
                     </ul>
                 </div>
