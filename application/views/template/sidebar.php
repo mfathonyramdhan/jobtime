@@ -29,9 +29,9 @@
                                 <span>Manajemen Akun</span>
                             </a>
                             <ul class="submenu">
-                                <li class="submenu-item">
+                                <!-- <li class="submenu-item">
                                     <a href="<?= base_url('admin/tambah_user') ?>">Tambah Akun User</a>
-                                </li>
+                                </li> -->
                                 <li class="submenu-item">
                                     <a href="<?= base_url('admin/daftar_admin') ?>">Data Akun Admin</a>
                                 </li>
