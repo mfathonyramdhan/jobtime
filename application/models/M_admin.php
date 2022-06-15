@@ -88,12 +88,19 @@ class M_admin extends CI_Model
     }
 
 
+    function jumlah_loker()
+    {
+        $this->db->select('*');
+        $this->db->from('tb_jobs');
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
     function jumlah_loker_status1()
     {
         $this->db->select('*');
         $this->db->from('tb_jobs');
         $this->db->where('id_jobs_status', 1);
-        // $this->db->join('tb_jobs_status', 'tb_jobs_status.level_user = tb_level_user.id_level');
         $query = $this->db->get();
         return $query->num_rows();
     }
