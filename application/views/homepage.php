@@ -1,6 +1,6 @@
 <body style="padding-top: 20px;">
 	<!-- Bottom Navbar -->
-	<nav class="navbar bg-primary navbar-expand fixed-bottom d-md-none d-lg-none d-xl-none" style="height: 40px; padding: 0px;">
+	<nav class="navbar bg-primary navbar-expand fixed-bottom " style="height: 40px; padding: 0px;">
 		<ul class="navbar-nav nav-justified w-100">
 			<li class="nav-item">
 				<a href="<?= base_url('admin/favorit/') ?>" class="nav-link"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-star-fill" viewBox="0 0 16 16">
