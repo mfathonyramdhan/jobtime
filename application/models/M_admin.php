@@ -87,6 +87,13 @@ class M_admin extends CI_Model
         $this->db->delete($table);
     }
 
+    function jumlah_user()
+    {
+        $this->db->select('*');
+        $this->db->from('tb_user');
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
 
     function jumlah_loker()
     {
