@@ -8,6 +8,10 @@ class Admin extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_admin');
+        $data['data_user'] = $this->M_admin->data_user($this->session->userdata('id_user'));
+        if (empty($data['data_user'])) {
+            redirect('auth');
+        }
     }
 
     public function index()
@@ -63,14 +67,6 @@ class Admin extends CI_Controller
         $this->load->view('template/meta', $data);
         $this->load->view('template/sidebar', $data);
         $this->load->view('form-edit-admin', $data);
-    }
-
-    public function favorit()
-    {
-        $data['title'] = 'Favorit | JobTime';
-
-        $this->load->view('template/meta', $data);
-        $this->load->view('favorit');
     }
 
     public function update_akun()
@@ -239,7 +235,7 @@ class Admin extends CI_Controller
             'syarat' => htmlspecialchars($this->input->post('syarat')),
             'id_jobs_status' => htmlspecialchars($this->input->post('id_jobs_status')),
             'link' => htmlspecialchars($this->input->post('link')),
-            'updated_at' => date('Y-m-d H:i:s')
+            'jobs_updated_at' => date('Y-m-d H:i:s')
         ];
 
         $where = array(
@@ -335,8 +331,8 @@ class Admin extends CI_Controller
             'gaji' => htmlspecialchars($this->input->post('gaji', true)),
             'deskripsi' => htmlspecialchars($this->input->post('deskripsi', true)),
             'syarat' => htmlspecialchars($this->input->post('syarat', true)),
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s'),
+            'jobs_created_at' => date('Y-m-d H:i:s'),
+            'jobs_updated_at' => date('Y-m-d H:i:s'),
             'deadline' => date('Y-m-d H:i:s', $date),
             'link' => htmlspecialchars($this->input->post('link', true)),
 

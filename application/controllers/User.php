@@ -6,12 +6,18 @@ class User extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_admin');
+        $data['data_user'] = $this->M_admin->data_user($this->session->userdata('id_user'));
+        if (empty($data['data_user'])) {
+            redirect('auth');
+        }
     }
     public function index()
     {
         $data['title'] = 'Homepage';
         $data['data_user'] = $this->M_admin->data_user($this->session->userdata('id_user'));
         $data['daftar_loker'] = $this->M_admin->loker_tersedia();
+        $data['loker_user'] = $this->M_admin->loker_user($this->session->userdata('id_user'));
+
         $this->load->view('template/meta', $data);
         // $this->load->view('template/sidebar');
         $this->load->view('homepage', $data);
@@ -141,8 +147,8 @@ class User extends CI_Controller
             'gaji' => htmlspecialchars($this->input->post('gaji', true)),
             'deskripsi' => htmlspecialchars($this->input->post('deskripsi', true)),
             'syarat' => htmlspecialchars($this->input->post('syarat', true)),
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s'),
+            'jobs_created_at' => date('Y-m-d H:i:s'),
+            'jobs_updated_at' => date('Y-m-d H:i:s'),
             'deadline' => date('Y-m-d H:i:s', $date),
             'link' => htmlspecialchars($this->input->post('link', true)),
 
@@ -165,7 +171,7 @@ class User extends CI_Controller
                 'status_pesan' => true,
                 'isi_pesan' => 'Tambah Loker Berhasil'
             ));
-            redirect('admin/favorit');
+            redirect('user');
         } else {
             $this->session->set_flashdata('pesan', array(
                 'status_pesan' => false,
@@ -173,6 +179,111 @@ class User extends CI_Controller
             ));
             redirect('user/form_create_loker_user');
         }
+    }
+
+    public function favorit()
+    {
+        $data['title'] = 'Favorit | JobTime';
+
+        $this->load->view('template/meta', $data);
+        $this->load->view('favorit');
+    }
+
+    public function hapus_loker($id_jobs)
+    {
+        $where = array('id_jobs' => $id_jobs);
+        $result = $this->M_admin->hapus_loker($where, 'tb_jobs');
+        if ($result == true) {
+            $this->session->set_flashdata('pesan', array(
+                'status_pesan' => true,
+                'isi_pesan' => 'Loker Berhasil Dihapus'
+            ));
+            redirect('user');
+        } else {
+            $this->session->set_flashdata('pesan', array(
+                'status_pesan' => true,
+                'isi_pesan' => 'Loker Berhasil Dihapus'
+            ));
+            redirect('user');
+        }
+    }
+
+    public function update_loker()
+    {
+        $pesan = array();
+
+        $config['upload_path']          = 'assets/images/logo_perusahaan';  // folder upload 
+        $config['allowed_types']        = 'gif|jpg|png|jpeg'; // jenis file
+        $config['overwrite']            = TRUE;
+        $config['max_size']             = 8000;
+
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+        if (!$this->upload->do_upload('image') && $_FILES['image']['size'] != 0) //sesuai dengan name pada form 
+        {
+            array_push($pesan, $this->upload->display_errors());
+        }
+
+        $file = $this->upload->data();
+        $image = $_FILES['image']['size'] != 0 ? $file['file_name'] : $this->input->post('image1');
+
+        $date = strtotime(htmlspecialchars($this->input->post('deadline')));
+
+        $data = [
+            'logo' => $image,
+            'perusahaan_nama' => htmlspecialchars($this->input->post('perusahaan_nama')),
+            'perusahaan_lokasi' => htmlspecialchars($this->input->post('perusahaan_lokasi')),
+            'judul' => htmlspecialchars($this->input->post('judul')),
+            'gaji' => (int)htmlspecialchars($this->input->post('gaji')),
+            'deadline' => date('Y-m-d H:i:s', $date),
+            'deskripsi' => htmlspecialchars($this->input->post('deskripsi')),
+            'syarat' => htmlspecialchars($this->input->post('syarat')),
+            'id_jobs_status' => htmlspecialchars($this->input->post('id_jobs_status')),
+            'link' => htmlspecialchars($this->input->post('link')),
+            'jobs_updated_at' => date('Y-m-d H:i:s')
+        ];
+
+        $where = array(
+            'id_jobs' => htmlspecialchars($this->input->post('id_jobs'))
+        );
+
+        // var_dump($data);
+        // die;
+
+        if (empty($pesan)) {
+            $result = $this->M_admin->update_loker($where, $data);
+        } else {
+            $this->session->set_flashdata('pesan', array(
+                'status_pesan' => false,
+                'isi_pesan' => 'Isi Form Dengan Valid'
+            ));
+            redirect('user/edit_loker/' . $this->input->post('id_jobs'));
+        }
+        if ($result == true) {
+            $this->session->set_flashdata('pesan', array(
+                'status_pesan' => true,
+                'isi_pesan' => 'Update Loker Berhasil'
+            ));
+            redirect('user');
+        } else {
+            $this->session->set_flashdata('pesan', array(
+                'status_pesan' => false,
+                'isi_pesan' => 'Update Loker Gagal'
+            ));
+            redirect('user/edit_loker/' . $this->input->post('id_jobs'));
+        }
+    }
+
+    public function edit_loker($id_loker)
+    {
+        $data['title'] = 'Edit Loker | JobTime';
+
+        $data['data_user'] = $this->M_admin->data_user($this->session->userdata('id_user'));
+        $data['loker'] = $this->M_admin->data_loker($id_loker);
+
+
+        $this->load->view('template/meta', $data);
+        $this->load->view('form-edit-loker-user', $data);
     }
 
     public function logout()

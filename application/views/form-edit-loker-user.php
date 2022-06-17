@@ -24,32 +24,33 @@ if (!empty($pesan)) {
 	}
 }
 ?>
+<nav class="navbar bg-primary navbar-expand fixed-bottom " style="height: 40px; padding: 0px;">
+	<ul class="navbar-nav nav-justified w-100">
+		<li class="nav-item">
+			<a href="<?= base_url('admin/favorit/') ?>" class="nav-link"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-star-fill" viewBox="0 0 16 16">
+					<path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+				</svg>
+			</a>
+		</li>
+		<li class="nav-item" style="background-color: white;">
+			<a href="<?= base_url('user/index/') ?>" class="nav-link">
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#435ebe" class="bi bi-house-fill" viewBox="0 0 16 16">
+					<path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+					<path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+				</svg>
+			</a>
+		</li>
+		<li class="nav-item">
+			<a href="<?= base_url('user/update_myprofile/') ?>" class="nav-link">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-person-fill" viewBox="0 0 16 16">
+					<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+				</svg>
+			</a>
+		</li>
+
+	</ul>
+</nav>
 <div class="page-heading">
-	<div class="page-title">
-		<div class="row">
-			<div class="col-12 col-md-6 order-md-1 order-last">
-				<h3>Edit Data Loker</h3>
-				<!-- <p class="text-subtitle text-muted">
-									Tampilan edit data akun admin (nama admin)
-								</p> -->
-			</div>
-			<div class="col-12 col-md-6 order-md-2 order-first">
-				<nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item">
-							<a href="<?= base_url('admin') ?>">Dashboard</a>
-						</li>
-						<li class="breadcrumb-item">
-							<a href="<?= base_url('admin/daftar_loker') ?>">Manajemen Akun - Data Loker</a>
-						</li>
-						<li class="breadcrumb-item active" aria-current="page">
-							Edit Data Loker
-						</li>
-					</ol>
-				</nav>
-			</div>
-		</div>
-	</div>
 
 	<section id="basic-vertical-layouts">
 		<div class="row match-height">
@@ -60,7 +61,7 @@ if (!empty($pesan)) {
 					</div>
 					<div class="card-content">
 						<div class="card-body">
-							<form class="form form-vertical" method="POST" action="<?= base_url('admin/update_loker/') ?>" enctype="multipart/form-data">
+							<form class="form form-vertical" method="POST" action="<?= base_url('user/update_loker/') ?>" enctype="multipart/form-data">
 								<div class="form-body">
 									<div class="row">
 										<div class="divider divider-left">
@@ -205,7 +206,7 @@ if (!empty($pesan)) {
 														<option value="3" <?php if ($loker['id_jobs_status'] == 3) {
 																				echo 'selected="selected"';
 																			} ?>>Kadaluarsa</option>
-														<option value="4" <?php if ($loker['id_jobs_status'] == 3) {
+														<option value="3" <?php if ($loker['id_jobs_status'] == 4) {
 																				echo 'selected="selected"';
 																			} ?>>Ditolak</option>
 
