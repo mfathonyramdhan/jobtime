@@ -102,6 +102,79 @@ class User extends CI_Controller
         }
     }
 
+
+    public function form_create_loker_user()
+    {
+        $data['title'] = 'Buat Loker | JobTime';
+        $data['data_user'] = $this->M_admin->data_user($this->session->userdata('id_user'));
+        $this->load->view('template/meta', $data);
+        $this->load->view('form-create-loker-user', $data);
+    }
+
+    public function create_loker()
+    {
+        $pesan = array();
+
+        $config['upload_path']          = 'assets/images/logo_perusahaan/';  // folder upload 
+        $config['allowed_types']        = 'gif|jpg|png|jpeg'; // jenis file
+        $config['overwrite']            = TRUE;
+        $config['max_size']             = 8000;
+
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+        if (!$this->upload->do_upload('image')) //sesuai dengan name pada form 
+        {
+            array_push($pesan, $this->upload->display_errors());
+        }
+        $file = $this->upload->data();
+        $logo = $file['file_name'];
+
+        $date = strtotime(htmlspecialchars($this->input->post('deadline')));
+
+        $data = [
+            'id_user' => htmlspecialchars($this->input->post('id_user', true)),
+            'id_jobs_status' => 1,
+            'logo' => $logo,
+            'judul' => htmlspecialchars($this->input->post('judul', true)),
+            'perusahaan_nama' => htmlspecialchars($this->input->post('perusahaan_nama', true)),
+            'perusahaan_lokasi' => htmlspecialchars($this->input->post('perusahaan_lokasi', true)),
+            'gaji' => htmlspecialchars($this->input->post('gaji', true)),
+            'deskripsi' => htmlspecialchars($this->input->post('deskripsi', true)),
+            'syarat' => htmlspecialchars($this->input->post('syarat', true)),
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            'deadline' => date('Y-m-d H:i:s', $date),
+            'link' => htmlspecialchars($this->input->post('link', true)),
+
+        ];
+
+        // var_dump($data); 
+        // die;
+
+        if (empty($pesan)) {
+            $result = $this->M_admin->tambah_loker($data);
+        } else {
+            $this->session->set_flashdata('pesan', array(
+                'status_pesan' => false,
+                'isi_pesan' => 'Isi Form Dengan Valid'
+            ));
+            redirect('user/form_create_loker_user');
+        }
+        if ($result == true) {
+            $this->session->set_flashdata('pesan', array(
+                'status_pesan' => true,
+                'isi_pesan' => 'Tambah Loker Berhasil'
+            ));
+            redirect('admin/favorit');
+        } else {
+            $this->session->set_flashdata('pesan', array(
+                'status_pesan' => false,
+                'isi_pesan' => 'Update Loker Gagal'
+            ));
+            redirect('user/form_create_loker_user');
+        }
+    }
+
     public function logout()
     {
         session_destroy();

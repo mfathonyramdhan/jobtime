@@ -26,9 +26,9 @@
 
 		</ul>
 	</nav>
-	<!-- <div class="row" style="margin-right: 20px; margin-left: 20px; padding-bottom: 20px;">
-		<a href="#" class="btn btn-primary">+ Buat Postingan Loker</a>
-	</div> -->
+	<div class="row" style="margin-right: 20px; margin-left: 20px; padding-bottom: 20px;">
+		<a href="<?= base_url('user/form_create_loker_user/') ?>" class="btn btn-primary">+ Buat Postingan Loker</a>
+	</div>
 
 	<div class="row" style="margin: 0px 0px 30px 0px;">
 
