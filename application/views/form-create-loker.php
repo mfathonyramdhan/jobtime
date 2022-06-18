@@ -71,12 +71,7 @@ if (!empty($pesan)) {
 
 										<input type="hidden" name="id_user" value="<?= $data_user['id_user'] ?>">
 
-										<div class="col">
-											<div class="form-group">
-												<label for="formFile">Logo Perusahaan</label>
-												<input type="file" class="form-control" placeholder="" id="formFile" name="image" id="image" required />
-											</div>
-										</div>
+
 
 										<div class="col">
 											<div class="form-group has-icon-left">
@@ -118,6 +113,12 @@ if (!empty($pesan)) {
 										</div>
 										<div class="row">
 											<div class="row">
+												<div class="col">
+													<div class="form-group">
+														<label for="formFile">Gambar / Poster Loker</label>
+														<input type="file" class="form-control" placeholder="" id="formFile" name="image" id="image" required />
+													</div>
+												</div>
 												<div class="col">
 													<div class="form-group has-icon-left">
 														<label for="first-name-icon">Judul Loker</label>

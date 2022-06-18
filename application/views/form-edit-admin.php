@@ -137,7 +137,7 @@ if (!empty($pesan)) {
 													<div class="position-relative">
 														<select class="form-select" id="basicSelect" name="jenis_kelamin">
 
-															
+
 															<option value="Laki - Laki" <?php if ($akun['jenis_kelamin'] == 'Laki - Laki') {
 																							echo 'selected="selected"';
 																						} ?>>Laki - Laki</option>
@@ -184,7 +184,7 @@ if (!empty($pesan)) {
 												</div>
 											</div>
 										</div>
-										<div class="col-md-auto">
+										<!-- <div class="col-md-auto">
 											<div class="form-group has-icon-left">
 												<label for="#">Kecamatan</label>
 												<div class="position-relative">
@@ -205,7 +205,7 @@ if (!empty($pesan)) {
 													</div>
 												</div>
 											</div>
-										</div>
+										</div> -->
 										<div class="col-md-8">
 											<div class="form-group has-icon-left">
 												<label for="#">Alamat</label>

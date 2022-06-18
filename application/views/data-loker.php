@@ -124,6 +124,9 @@ if (!empty($pesan)) {
                     <?php } elseif ($d['id_jobs_status'] == 3) { ?>
                       <span class="badge bg-danger">
                         Kadaluarsa
+                      </span><?php } elseif ($d['id_jobs_status'] == 4) { ?>
+                      <span class="badge bg-danger">
+                        Ditolak
                       </span>
                     <?php } ?>
                   </td>

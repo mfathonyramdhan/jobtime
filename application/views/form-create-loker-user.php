@@ -27,7 +27,7 @@ if (!empty($pesan)) {
 <nav class="navbar bg-primary navbar-expand fixed-bottom " style="height: 40px; padding: 0px;">
     <ul class="navbar-nav nav-justified w-100">
         <li class="nav-item">
-            <a href="<?= base_url('admin/favorit/') ?>" class="nav-link"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-star-fill" viewBox="0 0 16 16">
+            <a href="<?= base_url('admin/favorit/') ?>" class="nav-link"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-file-earmark-post" viewBox="0 0 16 16">
                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
                 </svg>
             </a>
@@ -69,12 +69,7 @@ if (!empty($pesan)) {
 
                             <input type="hidden" name="id_user" value="<?= $data_user['id_user'] ?>">
 
-                            <div class="row">
-                                <div class="form-group">
-                                    <label for="formFile">Logo Perusahaan</label>
-                                    <input type="file" class="form-control" placeholder="" id="formFile" name="image" id="image" required />
-                                </div>
-                            </div>
+
                             <div class="row">
                                 <div class="form-group has-icon-left">
                                     <label for="first-name-icon">Nama Perusahaan</label>
@@ -114,7 +109,12 @@ if (!empty($pesan)) {
                                 </div>
                             </div>
 
-
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="formFile">Gambar / Poster Loker</label>
+                                    <input type="file" class="form-control" placeholder="" id="formFile" name="image" id="image" required />
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="form-group has-icon-left">
                                     <label for="first-name-icon">Judul Loker</label>

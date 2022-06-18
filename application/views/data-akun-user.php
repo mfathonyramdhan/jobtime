@@ -65,8 +65,8 @@ if (!empty($pesan)) {
               <th>Foto Profil</th>
               <th>Provinsi</th>
               <th>Kota</th>
-              <th>Kecamatan</th>
-              <th>Desa</th>
+              <!-- <th>Kecamatan</th>
+              <th>Desa</th> -->
               <th>Alamat</th>
               <th>Akun Dibuat</th>
               <th>Akun diupdate terakhir pada</th>
@@ -100,8 +100,8 @@ if (!empty($pesan)) {
                   </td>
                   <td><?= $a['provinsi'] ?></td>
                   <td><?= $a['kota'] ?></td>
-                  <td><?= $a['kecamatan'] ?></td>
-                  <td><?= $a['desa'] ?></td>
+                  <!-- <td><?= $a['kecamatan'] ?></td>
+                  <td><?= $a['desa'] ?></td> -->
                   <td><?= $a['alamat'] ?></td>
                   <td><?= $a['created_at'] ?></td>
                   <td><?= $a['updated_at'] ?></td>

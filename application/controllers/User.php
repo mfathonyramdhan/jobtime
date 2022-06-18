@@ -183,10 +183,16 @@ class User extends CI_Controller
 
     public function favorit()
     {
-        $data['title'] = 'Favorit | JobTime';
+        $data['title'] = 'Loker Saya | JobTime';
+        $data['data_user'] = $this->M_admin->data_user($this->session->userdata('id_user'));
+        $data['daftar_loker'] = $this->M_admin->loker_tersedia();
+        $data['loker_user'] = $this->M_admin->loker_user($this->session->userdata('id_user'));
 
         $this->load->view('template/meta', $data);
-        $this->load->view('favorit');
+        // $this->load->view('template/sidebar');
+
+        $this->load->view('template/js');
+        $this->load->view('favorit', $data);
     }
 
     public function hapus_loker($id_jobs)
@@ -230,6 +236,7 @@ class User extends CI_Controller
         $date = strtotime(htmlspecialchars($this->input->post('deadline')));
 
         $data = [
+
             'logo' => $image,
             'perusahaan_nama' => htmlspecialchars($this->input->post('perusahaan_nama')),
             'perusahaan_lokasi' => htmlspecialchars($this->input->post('perusahaan_lokasi')),
@@ -238,7 +245,7 @@ class User extends CI_Controller
             'deadline' => date('Y-m-d H:i:s', $date),
             'deskripsi' => htmlspecialchars($this->input->post('deskripsi')),
             'syarat' => htmlspecialchars($this->input->post('syarat')),
-            'id_jobs_status' => htmlspecialchars($this->input->post('id_jobs_status')),
+            'id_jobs_status' => 1,
             'link' => htmlspecialchars($this->input->post('link')),
             'jobs_updated_at' => date('Y-m-d H:i:s')
         ];
