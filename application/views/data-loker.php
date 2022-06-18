@@ -65,6 +65,7 @@ if (!empty($pesan)) {
               <th>Aksi</th>
               <th>ID Loker</th>
               <th>Akun Pembuat Loker</th>
+              <th>Status</th>
               <th>Nama Perusahaan</th>
               <th>Logo Perusahaan</th>
               <th>Judul Loker</th>
@@ -73,7 +74,6 @@ if (!empty($pesan)) {
               <th>Deskripsi</th>
               <th>Syarat</th>
               <th>Deadline Pendaftaran</th>
-              <th>Status</th>
               <th>Link Whatsapp</th>
               <th>Loker Dibuat</th>
               <th>Loker diupdate terakhir pada</th>
@@ -102,16 +102,6 @@ if (!empty($pesan)) {
                   </td>
                   <td><?= $d['id_jobs'] ?></td>
                   <td><?= $d['nama'] ?></td>
-                  <td><?= $d['perusahaan_nama'] ?></td>
-                  <td> <a href="<?= base_url('assets/images/logo_perusahaan/') . $d['logo'] ?>">
-                      <span class="badge bg-warning">Lihat Gambar</span>
-                  </td></a>
-                  <td><?= $d['judul'] ?></td>
-                  <td><?= $d['perusahaan_lokasi'] ?></td>
-                  <td><?= "Rp " . number_format($d['gaji'], 0, ',', '.'); ?></td>
-                  <td><?= $d['deskripsi'] ?></td>
-                  <td><?= $d['syarat'] ?></td>
-                  <td><?= $d['deadline'] ?></td>
                   <td>
                     <?php if ($d['id_jobs_status'] == 1) { ?>
                       <span class="badge bg-warning">
@@ -130,6 +120,17 @@ if (!empty($pesan)) {
                       </span>
                     <?php } ?>
                   </td>
+                  <td><?= $d['perusahaan_nama'] ?></td>
+                  <td> <a href="<?= base_url('assets/images/logo_perusahaan/') . $d['logo'] ?>">
+                      <span class="badge bg-warning">Lihat Gambar</span>
+                  </td></a>
+                  <td><?= $d['judul'] ?></td>
+                  <td><?= $d['perusahaan_lokasi'] ?></td>
+                  <td><?= "Rp " . number_format($d['gaji'], 0, ',', '.'); ?></td>
+                  <td><?= $d['deskripsi'] ?></td>
+                  <td><?= $d['syarat'] ?></td>
+                  <td><?= $d['deadline'] ?></td>
+                  
                   <td><?= $d['link'] ?></td>
                   <td><?= $d['created_at']  ?></td>
                   <td><?= $d['updated_at'] ?></td>

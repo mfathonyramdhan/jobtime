@@ -84,17 +84,17 @@
 
 
 									<?php if ($d['id_jobs_status'] == 1) { ?>
-										<span class="badge bg-warning">
+										<h6>Status postingan :<span class="badge bg-warning">
 											Admin sedang mereview loker anda
-										</span>
+										</span></h6>
 									<?php } elseif ($d['id_jobs_status'] == 2) { ?>
-										<span class="badge bg-success">
+										<h6>Status postingan :<span class="badge bg-success">
 											Terkonfirmasi
-										</span>
+										</span></h6>
 									<?php } elseif ($d['id_jobs_status'] == 3) { ?>
-										<span class="badge bg-danger">
+										<h6>Status postingan :<span class="badge bg-danger">
 											Kadaluarsa
-										</span><?php } elseif ($d['id_jobs_status'] == 4) { ?>
+										</span></h6><?php } elseif ($d['id_jobs_status'] == 4) { ?>
 										<h6>Status postingan :<span class="badge bg-danger" style="margin-left: 10px;">
 												Ditolak
 											</span></h6>
