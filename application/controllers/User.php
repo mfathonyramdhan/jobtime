@@ -254,9 +254,6 @@ class User extends CI_Controller
             'id_jobs' => htmlspecialchars($this->input->post('id_jobs'))
         );
 
-        // var_dump($data);
-        // die;
-
         if (empty($pesan)) {
             $result = $this->M_admin->update_loker($where, $data);
         } else {

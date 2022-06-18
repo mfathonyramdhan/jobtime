@@ -71,6 +71,7 @@ if (!empty($pesan)) {
 							</div>
 
 							<input type="hidden" name="id_user" value="<?= $data_user['id_user'] ?>">
+							<input type="hidden" name="id_jobs" value="<?= $loker['id_jobs'] ?>">
 
 
 							<div class="row">
