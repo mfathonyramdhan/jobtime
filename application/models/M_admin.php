@@ -6,10 +6,18 @@ class M_admin extends CI_Model
     {
         parent::__construct();
     }
-//  tampilkan chart
-    public function chart_database() {
-        return $this->db->get('tb_jobs')->result();
-     }
+    //  tampilkan chart
+    public function chart_database()
+    {
+        $query = $this->db->query("SELECT jobs_created_at,COUNT(id_jobs) AS jobs FROM tb_jobs GROUP BY jobs_created_at");
+
+        if ($query->num_rows() > 0) {
+            foreach ($query->result() as $data) {
+                $hasil[] = $data;
+            }
+            return $hasil;
+        }
+    }
 
     function data_user($id_user)
     {

@@ -15,10 +15,20 @@ class Admin extends CI_Controller
     }
 
     // get chart dari model
-    public function chart_data(){
-		$data = $this->M_admin->chart_database();
-		echo json_encode($data);
-	}
+    public function chart_data()
+    {
+        // $tampung = array();
+        $jobs = $this->M_admin->chart_database();
+        foreach ($jobs as $j) {
+            $coba = strtotime($j->jobs_created_at);
+            // var_dump(date('F', $coba));
+            $bulan[] = date('F', $coba);
+            $jumlah[] = $j->jobs;
+        }
+        $data['bulan'] = $bulan;
+        $data['jumlah'] = $jumlah;
+        echo json_encode($data);
+    }
 
     public function index()
     {
@@ -27,6 +37,7 @@ class Admin extends CI_Controller
         $data['jumlah_loker_status1'] = $this->M_admin->jumlah_loker_status1();
         $data['jumlah_loker'] = $this->M_admin->jumlah_loker();
         $data['jumlah_user'] = $this->M_admin->jumlah_user();
+        $data['chart'] = $this->M_admin->chart_database();
         $this->load->view('template/meta', $data);
         $this->load->view('template/sidebar', $data);
         $this->load->view('index', $data);
