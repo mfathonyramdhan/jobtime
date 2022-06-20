@@ -14,6 +14,12 @@ class Admin extends CI_Controller
         }
     }
 
+    // get chart dari model
+    public function chart_data(){
+		$data = $this->M_admin->chart_database();
+		echo json_encode($data);
+	}
+
     public function index()
     {
         $data['title'] = 'Dashboard | JobTime';

@@ -6,6 +6,10 @@ class M_admin extends CI_Model
     {
         parent::__construct();
     }
+//  tampilkan chart
+    public function chart_database() {
+        return $this->db->get('tb_jobs')->result();
+     }
 
     function data_user($id_user)
     {

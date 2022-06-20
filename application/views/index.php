@@ -1,4 +1,4 @@
-<div class="page-heading">
+<body><div class="page-heading">
   <h3>Statistik JobTime</h3>
 </div>
 <div class="page-content">
@@ -83,7 +83,16 @@
               <h4>Grafik Loker 2022</h4>
             </div>
             <div class="card-body">
-              <div id="chart-profile-visit"></div>
+            <div class="container">
+              <div class="row mt-4">
+                <div class="col-12">
+                  <canvas id="bar" hight="100">
+
+                  </canvas>
+                </div>
+              </div>
+              
+</div>
             </div>
           </div>
         </div>
@@ -244,13 +253,83 @@
           <h4>Users Chart</h4>
         </div>
         <div class="card-body">
-          <div id="chart-visitors-profile"></div>
+             <canvas id="pie"></canvas>
         </div>
       </div>
     </div>
   </section>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+
+  const baseUrl = "<?php echo base_url();?>"
+  const myChart = (chartType) => {
+				$.ajax({
+				url: baseUrl+'admin/chart_data',
+				dataType: 'json',
+				method: 'get',
+				success: data => {
+					let chartX = []
+					let chartY = []
+
+					data.map( data => {
+						chartX.push(data.month)
+						chartY.push(data.sales)
+					})
+					const chartData = {
+						labels: chartX,
+						datasets: [
+							{
+								label: 'Sales',
+								data: chartY,
+								backgroundColor: ['lightcoral'],
+								borderColor: ['lightcoral'],
+								borderWidth: 4
+
+							}
+						]
+					}
+					const ctx = document.getElementById(chartType).getContext('2d')
+					const config = {
+						type: chartType,
+						data: chartData
+					}
+					switch(chartType) {
+						case 'pie':
+							const pieColor = ['salmon', 'red', 'green', 'blue', 'aliceblue', 'pink', 'orange', 'gold', 'plum', 'darkcyan', 'wheat', 'silver']
+							chartData.datasets[0].backgroundColor = pieColor
+							chartData.datasets[0].borderColor = pieColor
+							break;
+						case 'bar':
+							chartData.datasets[0].backgroundColor = ['skyblue']
+							chartData.datasets[0].borderColor = ['skyblue']
+							break;
+						default:
+							config.options = {
+								scales: {
+									y: {
+										beginAtZero: true
+									}
+								}
+							}
+
+					}
+
+					const chart = new Chart(ctx, config)
+				}
+			})
+  }
+
+  myChart('pie')
+  // myChart('line')
+  myChart('bar')
+ 
+</script>
+
+  
+</body>
 <footer>
   <div class="footer clearfix mb-0 text-muted">
     <div class="float-start">

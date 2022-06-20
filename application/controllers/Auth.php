@@ -115,7 +115,7 @@ class Auth extends CI_Controller
                 'status_pesan' => true,
                 'isi_pesan' => 'Akun Berhasil Didaftarkan'
             ));
-            redirect('auth/login');
+            redirect('auth');
         } else {
             $this->session->set_flashdata('pesan', array(
                 'status_pesan' => false,
