@@ -25,17 +25,17 @@ if (!empty($pesan)) {
 }
 ?>
 
-<nav class="navbar bg-primary navbar-expand fixed-bottom shadow" style="height: 40px; padding: 0px;">
+<nav class="navbar bg-primary navbar-expand fixed-bottom d-lg-none d-xl-none" style="height: 40px;padding: 0px;">
 	<ul class="navbar-nav nav-justified w-100">
 		<li class="nav-item">
-			<a href="<?= base_url('user/myloker/') ?>" class="nav-link"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-file-earmark-post" viewBox="0 0 16 16">
-					<path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z" />
-					<path d="M4 6.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-7zm0-3a.5.5 0 0 1 .5-.5H7a.5.5 0 0 1 0 1H4.5a.5.5 0 0 1-.5-.5z" />
+			<a href="<?= base_url('user/favourite/') ?>" class="nav-link">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-star-fill" viewBox="0 0 16 16">
+					<path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
 				</svg>
 			</a>
 		</li>
 		<li class="nav-item">
-			<a href="<?= base_url('user/index/') ?>" class="nav-link">
+			<a href="<?= base_url('user/hunter/') ?>" class="nav-link">
 				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-house-fill" viewBox="0 0 16 16">
 					<path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
 					<path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
@@ -43,7 +43,7 @@ if (!empty($pesan)) {
 			</a>
 		</li>
 		<li class="nav-item" style="background-color: white;">
-			<a href="<?= base_url('user/update_myprofile/') ?>" class="nav-link">
+			<a href="<?= base_url('user/hunter_update_myprofile/') ?>" class="nav-link">
 				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#435ebe" class="bi bi-person-fill" viewBox="0 0 16 16">
 					<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
 				</svg>
@@ -53,14 +53,14 @@ if (!empty($pesan)) {
 	</ul>
 </nav>
 
-<div class="page-heading" style="padding-top: 40px;">
+<div class="page-heading" style="padding-top: 20px;">
 	<section id="basic-vertical-layouts">
-		<div class="row" style="margin-right: 0px; padding-top: 40px;">
+		<div class="row" style="margin-right: 0px;">
 			<div class="col" style="padding-right: 0px;">
 				<div class="card shadow p-3 mb-5 bg-white rounded" style="margin-right: 20px; margin-left: 20px; margin-bottom: 100px;">
 					<div class="card-header" style="padding: 0px;">
 						<h4 class="card-title text-center">My Profile</h4>
-						<div class="col">
+						<div class="">
 
 							<!-- Profile Image -->
 							<div class="card card-primary card-outline">

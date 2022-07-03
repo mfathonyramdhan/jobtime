@@ -24,12 +24,33 @@ class User extends CI_Controller
         $this->load->view('template/js');
     }
 
+    public function hunter()
+    {
+        $data['title'] = 'Homepage';
+        $data['data_user'] = $this->M_admin->data_user($this->session->userdata('id_user'));
+        $data['daftar_loker'] = $this->M_admin->loker_tersedia();
+        $data['loker_user'] = $this->M_admin->loker_user($this->session->userdata('id_user'));
+
+        $this->load->view('template/meta', $data);
+
+        $this->load->view('homepage_hunter', $data);
+        $this->load->view('template/js');
+    }
+
     public function loker_detail($id_jobs)
     {
         $data['title'] = 'Detail Loker | JobTime';
         $data['loker'] = $this->M_admin->data_loker($id_jobs);
         $this->load->view('template/meta', $data);
         $this->load->view('loker-detail');
+    }
+
+    public function loker_detail_hunter($id_jobs)
+    {
+        $data['title'] = 'Detail Loker | JobTime';
+        $data['loker'] = $this->M_admin->data_loker($id_jobs);
+        $this->load->view('template/meta', $data);
+        $this->load->view('loker-detail-hunter');
     }
 
     public function update_myprofile()
@@ -39,6 +60,15 @@ class User extends CI_Controller
 
         $this->load->view('template/meta', $data);
         $this->load->view('user-update-myprofile');
+    }
+
+    public function hunter_update_myprofile()
+    {
+        $data['title'] = 'Update MyProfile | JobTime';
+        $data['data_user'] = $this->M_admin->data_user($this->session->userdata('id_user'));
+
+        $this->load->view('template/meta', $data);
+        $this->load->view('hunter-update-myprofile');
     }
 
     public function update_profile()
@@ -121,7 +151,7 @@ class User extends CI_Controller
     {
         $pesan = array();
 
-        $config['upload_path']          = 'assets/images/logo_perusahaan/';  // folder upload 
+        $config['upload_path']          = 'assets/images/logo_perusahaan/';  // folder upload  
         $config['allowed_types']        = 'gif|jpg|png|jpeg'; // jenis file
         $config['overwrite']            = TRUE;
         $config['max_size']             = 8000;
@@ -181,7 +211,44 @@ class User extends CI_Controller
         }
     }
 
-    public function favorit()
+    public function favoritkan()
+    {
+        $pesan = array();
+
+
+        $data = array(
+            'id_jobs' => $this->input->post('id_jobs'),
+            'id_user' => $this->session->id_user
+        );
+
+        // var_dump($data); 
+        // die;
+
+        if (empty($pesan)) {
+            $result = $this->M_admin->tambah_favorit($data);
+        } else {
+            $this->session->set_flashdata('pesan', array(
+                'status_pesan' => false,
+                'isi_pesan' => 'Isi Form Dengan Valid'
+            ));
+            redirect('user/hunter');
+        }
+        if ($result == true) {
+            $this->session->set_flashdata('pesan', array(
+                'status_pesan' => true,
+                'isi_pesan' => 'Loker berhasil difavoritkan'
+            ));
+            redirect('user/favourite');
+        } else {
+            $this->session->set_flashdata('pesan', array(
+                'status_pesan' => false,
+                'isi_pesan' => 'Loker gagal difavoritkan'
+            ));
+            redirect('user/hunter');
+        }
+    }
+
+    public function myloker()
     {
         $data['title'] = 'Loker Saya | JobTime';
         $data['data_user'] = $this->M_admin->data_user($this->session->userdata('id_user'));
@@ -192,8 +259,24 @@ class User extends CI_Controller
         // $this->load->view('template/sidebar');
 
         $this->load->view('template/js');
-        $this->load->view('favorit', $data);
+        $this->load->view('myloker', $data);
     }
+
+
+    public function favourite()
+    {
+        $data['title'] = 'Loker Favorit | JobTime';
+        $data['data_user'] = $this->M_admin->data_user($this->session->userdata('id_user'));
+        $data['daftar_loker'] = $this->M_admin->loker_tersedia();
+        $data['loker_favorit'] = $this->M_admin->loker_favorit($this->session->userdata('id_user'));
+
+        $this->load->view('template/meta', $data);
+        // $this->load->view('template/sidebar');
+
+        $this->load->view('template/js');
+        $this->load->view('favourite', $data);
+    }
+
 
     public function hapus_loker($id_jobs)
     {
@@ -211,6 +294,28 @@ class User extends CI_Controller
                 'isi_pesan' => 'Loker Berhasil Dihapus'
             ));
             redirect('user');
+        }
+    }
+
+
+    public function hapus_favourite($id_jobs_fav)
+    {
+        $where = array('id_jobs_fav' => $id_jobs_fav);
+        $result = $this->M_admin->hapus_loker($where, 'tb_jobs_fav');
+
+
+        if ($result == true) {
+            $this->session->set_flashdata('pesan', array(
+                'status_pesan' => true,
+                'isi_pesan' => 'Loker Berhasil Dihapus'
+            ));
+            redirect('user/favourite');
+        } else {
+            $this->session->set_flashdata('pesan', array(
+                'status_pesan' => true,
+                'isi_pesan' => 'Loker Gagal Dihapus'
+            ));
+            redirect('user/favourite');
         }
     }
 
@@ -288,6 +393,13 @@ class User extends CI_Controller
 
         $this->load->view('template/meta', $data);
         $this->load->view('form-edit-loker-user', $data);
+    }
+
+    public function like($jid = 0)
+    {
+
+        if (isset($_SESSION['user'])) {
+        } else echo 0;
     }
 
     public function logout()

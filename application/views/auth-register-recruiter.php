@@ -52,12 +52,12 @@
 					</div>
 
 					<p class="auth-subtitle mb-4">
-						Daftar sebagai pencari <br> loker di JobTime
+						Daftar sebagai <strong> penyedia <br> loker </strong> di JobTime
 					</p>
 					<p id="email_result"></p>
 					<p id="pass_conf1"></p>
 					<p id="pass_conf"></p>
-					<form action="<?= base_url('auth/proses_register_user') ?>" method="POST">
+					<form action="<?= base_url('auth/proses_register_recruiter') ?>" method="POST">
 						<div class="form-group position-relative has-icon-left">
 							<input type="text" class="form-control form-control-xl" name="nama" id="nama" placeholder="Nama" required />
 							<div class="form-control-icon">
@@ -94,23 +94,18 @@
 							Daftar
 						</button>
 					</form>
-
-					<div class="d-block d-lg-none">
-						<div class="text-center mt-4 text-lg fs-6>
-						<p class=" text-gray-600">
-							Daftar sebagai penyedia loker
-							<a href="<?= base_url('auth/register_recruiter') ?>" class="font-bold">Disini</a>.
-							</p>
-						</div>
+					<div class="text-center mt-4 text-lg fs-6">
+						<p class="text-gray-600">
+							Daftar sebagai pencari loker
+							<a href="<?= base_url('auth/register_user') ?>" class="font-bold">Disini</a>.
+						</p>
 					</div>
-
 					<div class="text-center mt-4 text-lg fs-6">
 						<p class="text-gray-600">
 							Sudah punya akun ?
 							<a href="<?= base_url('auth') ?>" class="font-bold">Login</a>.
 						</p>
 					</div>
-
 				</div>
 			</div>
 			<div class="col-lg-7 d-none d-lg-block">

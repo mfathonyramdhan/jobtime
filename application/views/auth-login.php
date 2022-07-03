@@ -82,7 +82,7 @@
 					<div class="text-center mt-4 text-lg fs-6">
 						<p class="text-gray-600">
 							Belum punya akun ?
-							<a href="<?= base_url('auth/register') ?>" class="font-bold">Daftar</a>
+							<a href="<?= base_url('auth/register_user') ?>" class="font-bold">Daftar</a>
 						</p>
 						<!-- <p>
 								<a class="font-bold" href="auth-forgot-password.html"

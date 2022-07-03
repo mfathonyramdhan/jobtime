@@ -39,12 +39,10 @@ class Admin extends CI_Controller
         $data['jumlah_user'] = $this->M_admin->jumlah_user();
         $data['chart'] = $this->M_admin->chart_database();
         $this->load->view('template/meta', $data);
-
+        $this->load->view('template/sidebar', $data);
         $this->load->view('index', $data);
         $this->load->view('template/js');
     }
-
-
 
     public function homepage()
     {

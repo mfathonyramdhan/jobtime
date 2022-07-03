@@ -38,12 +38,18 @@ class Auth extends CI_Controller
                     'isi_pesan' => 'Berhasil Login, Selamat Datang!'
                 ));
                 redirect('admin');
-            } elseif ($user['id_role'] == 2) {
+            } elseif ($user['id_role'] == 3) {
                 $this->session->set_flashdata('pesan', array(
                     'status_pesan' => true,
                     'isi_pesan' => 'Berhasil Login, Selamat Datang!'
                 ));
                 redirect('user');
+            } elseif ($user['id_role'] == 2) {
+                $this->session->set_flashdata('pesan', array(
+                    'status_pesan' => true,
+                    'isi_pesan' => 'Berhasil Login, Selamat Datang!'
+                ));
+                redirect('user/hunter');
             } else {
                 $this->session->set_flashdata('pesan', array(
                     'status_pesan' => false,
@@ -167,8 +173,6 @@ class Auth extends CI_Controller
             ));
 
             redirect('auth/register_user');
-
-          
         }
         if ($result == true) {
             $this->session->set_flashdata('pesan', array(
@@ -177,7 +181,6 @@ class Auth extends CI_Controller
             ));
 
             redirect('auth');
-
         } else {
             $this->session->set_flashdata('pesan', array(
                 'status_pesan' => false,
@@ -188,4 +191,62 @@ class Auth extends CI_Controller
         }
     }
 
+    public function register_recruiter()
+    {
+        $this->load->view('auth-register-recruiter');
+    }
+
+    public function proses_register_recruiter()
+    {
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|is_unique[tb_user.email]', [
+            'is_unique' => 'Email sudah terdaftar!'
+        ]);
+        $this->form_validation->set_rules('password', 'Password', 'trim|min_length[5]|matches[password2]', [
+            'matches' => 'Password tidak cocok!',
+            'min_length' => 'Password terlalu pendek!'
+        ]);
+        $this->form_validation->set_rules('password2', 'Password Confirmation', 'trim|matches[password]');
+
+        $pesan = array();
+
+        if ($this->form_validation->run() == false) {
+            array_push($pesan, validation_errors());
+        }
+
+        $data = [
+            'nama' => htmlspecialchars($this->input->post('nama', true)),
+            'email' => htmlspecialchars($this->input->post('email')),
+            'password' => md5(htmlspecialchars($this->input->post('password', true))),
+            'id_role' => 3,
+            'foto' => "default.jpg",
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+        ];
+
+        if (empty($pesan)) {
+            $result = $this->M_auth->tambah_user($data);
+        } else {
+            $this->session->set_flashdata('pesan', array(
+                'status_pesan' => false,
+                'isi_pesan' => 'Isi Form Dengan Valid'
+            ));
+
+            redirect('auth/register_user');
+        }
+        if ($result == true) {
+            $this->session->set_flashdata('pesan', array(
+                'status_pesan' => true,
+                'isi_pesan' => 'Akun Berhasil Didaftarkan'
+            ));
+
+            redirect('auth');
+        } else {
+            $this->session->set_flashdata('pesan', array(
+                'status_pesan' => false,
+                'isi_pesan' => 'Akun Gagal Didaftarkan'
+            ));
+
+            redirect('auth/register_user');
+        }
+    }
 }

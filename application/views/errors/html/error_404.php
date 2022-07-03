@@ -3,22 +3,21 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Favorit | JobTime</title>
-	<link rel="icon" type="image/x-icon" href="assets/images/logo/favicon.ico">
+	<title>Error 404 | JobTime</title>
+	<link rel="icon" type="image/x-icon" href="../assets/images/logo/favicon.ico">
 
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="assets/css/bootstrap.css">
+	<link rel="stylesheet" href="../assets/css/bootstrap.css">
 
-	<link rel="stylesheet" href="assets/vendors/iconly/bold.css">
-	<link rel="stylesheet" href="assets/vendors/simple-datatables/style.css">
+	<link rel="stylesheet" href="../assets/vendors/iconly/bold.css">
+	<link rel="stylesheet" href="../assets/vendors/simple-datatables/style.css">
 
-	<link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
-	<link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
-	<link rel="stylesheet" href="assets/css/app.css">
-	<link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
-	<link rel="stylesheet" href="assets/vendors/sweetalert/dist/sweetalert2.min.css">
-	<script type="text/javascript" src="assets/vendors/sweetalert/dist/sweetalert2.all.min.js"></script>
+	<link rel="stylesheet" href="../assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+	<link rel="stylesheet" href="../assets/vendors/bootstrap-icons/bootstrap-icons.css">
+	<link rel="stylesheet" href="../assets/css/app.css">
+	<link rel="stylesheet" href="../assets/vendors/sweetalert/dist/sweetalert2.min.css">
+	<script type="text/javascript" src="../assets/vendors/sweetalert/dist/sweetalert2.all.min.js"></script>
 	<style>
 		@charset "UTF-8";
 
@@ -1655,74 +1654,21 @@
 	</style>
 </head>
 
-<body style="padding-top: 20px;">
-	<!-- Bottom Navbar -->
-	<nav class="navbar bg-primary navbar-expand fixed-bottom d-md-none d-lg-none d-xl-none" style="height: 40px; padding: 0px;">
-		<ul class="navbar-nav nav-justified w-100">
-			<li class="nav-item" style="background-color: white;">
-				<a href="admin/favorit/" class="nav-link">
-					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#435ebe" class="bi bi-star-fill" viewBox="0 0 16 16">
-						<path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-					</svg>
-				</a>
-			</li>
-			<li class="nav-item">
-				<a href="user/index/" class="nav-link">
-					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-house-fill" viewBox="0 0 16 16">
-						<path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"></path>
-						<path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"></path>
-					</svg>
-				</a>
-			</li>
-			<li class="nav-item">
-				<a href="user/update_myprofile/" class="nav-link">
-					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-person-fill" viewBox="0 0 16 16">
-						<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
-					</svg>
-				</a>
-			</li>
 
-		</ul>
-	</nav>
+
+<body style="padding-top: 20px;">
+
+	
 	<div class="row" style="margin-right: 20px; margin-left: 20px; padding-bottom: 20px;">
 	</div>
 
-	<!-- <div class="card shadow p-3 mb-5 bg-white rounded" style="margin-right: 20px; margin-left: 20px;">
-		<div class="card-content">
-			<img class="card-img-top img-fluid" src="assets/images/logo/logo.png" alt="Card image cap">
-			<div class="card-body">
-				<h4 class="card-title" style="padding-bottom: 10px;">Front-End Web Developer</h4>
-				<p> <i class="bi bi-building"></i>
-					PT. Jaya Makmur Techno</p>
-				<div class="row">
-					<div class="col">
-						<p> <i class="bi bi-geo-alt"> </i>Jawa Timur - Jember</p>
-					</div>
-				</div>
-
-				<h5>Gaji</h5>
-				<p><i class="bi bi-currency-dollar"></i>Rp. 5.000.000</p>
-
-				<p class="card-text">
-					Dibutuhkan FE Web Dev di perusahaan kami dengan jo...
-				</p>
-
-				<small class="text-muted">Deadline Pendaftaran : 30 Hari lagi</small>
-				<div class="row" style="padding-top: 10px;">
-					<div class="col text-end">
-						<a href="user/loker_detail" class="btn btn-primary">Lihat Detail</a>
-					</div>
-
-				</div>
-
-			</div>
-		</div>
-	</div> -->
+	
 
 	<div class="text-center my-auto" style="margin: 20px;">
-		<img class="card-img-top img-fluid" src="assets/images/samples/error-404.png" alt="Card " style="width: 50%; img-dragable: false;">
+		<img class="card-img-top img-fluid" src="../assets/images/samples/error-404.png" alt="Card " style=" width: 300px; img-dragable: false;">
 		<h3>Halaman yang anda kunjungi <br> masih belum tersedia</h3>
 	</div>
+
 
 
 

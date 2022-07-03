@@ -20,4 +20,5 @@
     <link rel="shortcut icon" href="<?= base_url('assets/images/') ?>favicon.svg" type="image/x-icon" />
     <link rel="stylesheet" href="<?= base_url('assets/vendors/sweetalert/dist/sweetalert2.min.css') ?>">
     <script type="text/javascript" src="<?= base_url('assets/vendors/sweetalert/dist/sweetalert2.all.min.js') ?>"></script>
+    <script  type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>

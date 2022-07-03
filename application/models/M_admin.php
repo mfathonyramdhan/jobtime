@@ -46,15 +46,42 @@ class M_admin extends CI_Model
         return $query->result_array();
     }
 
+    #-------------------------------------
+
     function daftar_loker()
     {
         $this->db->select('*');
         $this->db->from('tb_jobs');
         $this->db->join('tb_jobs_status', 'tb_jobs_status.id_jobs_status = tb_jobs.id_jobs_status');
         $this->db->join('tb_user', 'tb_jobs.id_user = tb_user.id_user');
+
         $query = $this->db->get();
         return $query->result_array();
     }
+
+    function loker_user($id_user)
+    {
+        $this->db->select('*');
+        $this->db->from('tb_jobs');
+        $this->db->join('tb_jobs_status', 'tb_jobs_status.id_jobs_status = tb_jobs.id_jobs_status');
+        $this->db->join('tb_user', 'tb_jobs.id_user = tb_user.id_user');
+        $this->db->where('tb_jobs.id_user', $id_user);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    function loker_favorit($id_user)
+    {
+        $this->db->select('*');
+        $this->db->from('tb_jobs');
+        $this->db->join('tb_jobs_fav', 'tb_jobs_fav.id_jobs = tb_jobs.id_jobs');
+        $this->db->join('tb_user', 'tb_jobs_fav.id_user = tb_user.id_user');
+        $this->db->where('tb_jobs_fav.id_user', $id_user);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    #-------------------------------------
 
     function data_loker($id_loker)
     {
@@ -93,11 +120,6 @@ class M_admin extends CI_Model
         $this->db->delete($table);
     }
 
-    function hapus_loker($where, $table)
-    {
-        $this->db->where($where);
-        $this->db->delete($table);
-    }
 
     function jumlah_user()
     {
@@ -130,25 +152,34 @@ class M_admin extends CI_Model
         return $this->db->insert('tb_jobs', $data);
     }
 
+    function tambah_favorit($data)
+    {
+        return $this->db->insert('tb_jobs_fav', $data);
+    }
+
     function loker_tersedia()
     {
         $this->db->select('*');
         $this->db->from('tb_jobs');
         $this->db->join('tb_jobs_status', 'tb_jobs_status.id_jobs_status = tb_jobs.id_jobs_status');
         $this->db->join('tb_user', 'tb_jobs.id_user = tb_user.id_user');
+
         $this->db->where('tb_jobs.id_jobs_status', 2);
         $query = $this->db->get();
         return $query->result_array();
     }
 
-    function loker_user($id_user)
+
+    function hapus_loker($where, $table)
     {
-        $this->db->select('*');
-        $this->db->from('tb_jobs');
-        $this->db->join('tb_jobs_status', 'tb_jobs_status.id_jobs_status = tb_jobs.id_jobs_status');
-        $this->db->join('tb_user', 'tb_jobs.id_user = tb_user.id_user');
-        $this->db->where('tb_jobs.id_user', $id_user);
-        $query = $this->db->get();
-        return $query->result_array();
+        $this->db->where($where);
+        $this->db->delete($table);
+    }
+
+
+    function hapus_favorit($where, $table)
+    {
+        $this->db->where($where);
+        $this->db->delete($table);
     }
 }

@@ -64,6 +64,7 @@ if (!empty($pesan)) {
               <th>No.</th>
               <th>Aksi</th>
               <th>ID Loker</th>
+
               <th>Akun Pembuat Loker</th>
               <th>Status</th>
               <th>Nama Perusahaan</th>
@@ -101,6 +102,7 @@ if (!empty($pesan)) {
                     </a>
                   </td>
                   <td><?= $d['id_jobs'] ?></td>
+
                   <td><?= $d['nama'] ?></td>
                   <td>
                     <?php if ($d['id_jobs_status'] == 1) { ?>
@@ -130,7 +132,7 @@ if (!empty($pesan)) {
                   <td><?= $d['deskripsi'] ?></td>
                   <td><?= $d['syarat'] ?></td>
                   <td><?= $d['deadline'] ?></td>
-                  
+
                   <td><?= $d['link'] ?></td>
                   <td><?= $d['created_at']  ?></td>
                   <td><?= $d['updated_at'] ?></td>

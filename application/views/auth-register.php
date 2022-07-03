@@ -52,7 +52,7 @@
 					</div>
 
 					<p class="auth-subtitle mb-4">
-						Input data diri anda untuk mendaftar di JobTime
+						Input data diri anda untuk mendaftar sebagai admin di JobTime
 					</p>
 					<p id="email_result"></p>
 					<p id="pass_conf1"></p>
@@ -94,6 +94,12 @@
 							Daftar
 						</button>
 					</form>
+					<div class="text-center mt-4 text-lg fs-6">
+						<p class="text-gray-600">
+							Already have an account?
+							<a href="<?= base_url('auth') ?>" class="font-bold">Login</a>.
+						</p>
+					</div>
 					<div class="text-center mt-4 text-lg fs-6">
 						<p class="text-gray-600">
 							Already have an account?
